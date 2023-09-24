@@ -1,12 +1,11 @@
 :root {
-  --green-8: #051E1F;
-  --green-7: #0B2925;
-  --green-6: #143630;
-  --green-5: #225044;
-  --green-4: #88AF95;
-  --green-3: #D1E8D4;
-  --green-2: #E5FFEA;
-  --green-1: #F6FFF8;
+  --primary-1: #D6FF97;
+  --primary-2: #4C7D02;
+  --primary-3: #213700;
+  --font-1: #969696;
+  --font-2: #343434;
+  --font-3: #2D2D2D;
+  --white: #FFFFFF;
 
   --header-height: 55px
 }
@@ -16,11 +15,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--green-1);
+  color: var(--font-3);
 }
 
 header {
-  background-color: var(--green-4);
+  background-color: var(--primary-2);
   width: 100%;
   height: var(--header-height);
   position: fixed;
@@ -32,12 +31,8 @@ header {
   padding: 8px;
 }
 
-header h1 {
-  font-size: 20px;
-}
-
-header h1 span {
-  color: var(--green-6);
+#logo-white {
+  width: 150px;
 }
 
 header>div {
@@ -64,19 +59,21 @@ header nav {
 }
 
 header nav a:first-child {
-  color: var(--green-5);
+  color: var(--white);
 }
 
-button {
-  background-color: var(--green-6);
+#login_link, button {
+  background-color: var(--white);
+  color: var(--primary-2);
   border: none;
   font-size: 14px;
   font-weight: 600;
   padding: 8px;
   border-radius: 4px;
+  text-decoration: none;
 }
 
-button:hover {
+button:hover, #login_link:hover {
   opacity: .8;
   cursor: pointer;
 }
@@ -86,4 +83,12 @@ main {
   height: calc(100vh - var(--header-height));
   margin-top: var(--header-height);
 
+}
+
+input{
+  padding: 8px;
+  border: 1.5px solid var(--font-3);
+  font-size: 14px;
+  text-indent: 4px;
+  border-radius: 4px;
 }
