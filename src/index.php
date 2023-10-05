@@ -15,7 +15,7 @@
   <?=$header?>
 
   <main id="main_home">
-    <!-- Colocar o conteúdo da página aqui -->
+    <!-- Colocar o conteúdo da página aqui https://github.com/ossu/computer-science#advanced-math -->
   </main>
 
 </body>
