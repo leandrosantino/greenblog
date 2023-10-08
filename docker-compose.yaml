@@ -4,8 +4,14 @@ services:
   php:
     image: php:8.3.0RC2-apache
     ports:
-      - "3000:80"
+      - "3333:80"
     volumes:
       - ./src:/var/www/html
-  
+  mysql:
+    image: mysql:8.1
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+
 
