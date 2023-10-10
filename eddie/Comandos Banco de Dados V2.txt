@@ -40,7 +40,7 @@ create table tags (
 
 create table post_tags (
     post_id int not null,
-    tag_id nit not null,
+    tag_id int not null,
     primary key (post_id, tag_id),
     foreign key (post_id) references posts(post_id),
     foreign key(tag_id) references tags(tag_id)
