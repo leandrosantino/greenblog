@@ -1,6 +1,6 @@
 <?php 
 
-include '../repositories/UserRepository.php';
+require_once './user/UserRepository.php';
 
 $userRepository = new UserRepository();
 

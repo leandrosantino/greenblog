@@ -1,6 +1,6 @@
 -- Active: 1697236100467@@127.0.0.1@3306
 create table user (
-	user_id int not null primary key,
+	user_id integer not null primary key autoincrement,
     email varchar(40),
     password varchar(40),
     username varchar(16)
@@ -48,4 +48,4 @@ create table post_tags (
 );
 
 
-INSERT INTO user VALUES (3, 'leandrosantino@gmail.com','alpha45c','leandro')
+-- INSERT INTO user VALUES (3, 'leandrosantino@gmail.com','alpha45c','leandro')

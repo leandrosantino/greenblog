@@ -1,7 +1,6 @@
 <?php
 
 const DATABASE_PATH = __DIR__."/app.db";
-
 class Database {
 
   public static function connect(){

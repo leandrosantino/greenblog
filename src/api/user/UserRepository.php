@@ -1,6 +1,6 @@
 <?php 
 
-	include '../database/connection.php';
+	require './database/connection.php';
 
 	class UserRepository {
 
@@ -10,7 +10,7 @@
 			$this->db = Database::connect();
 		}
 
-		public function create($data){
+		public function create($data) {
 
 			$sql = "--sql
 				INSERT INTO user VALUES (
@@ -40,7 +40,18 @@
 			
 			$query = $this->db->prepare($sql);
 			$query->execute();
-			$data = $query->fetchAll(PDO::FETCH_ASSOC);
+			$query = $query->fetchAll(PDO::FETCH_ASSOC);
+
+			$data = [];
+
+			foreach ($query as $row){
+				$user = new UserModel();
+				$user->name = "Leandro";
+				$user->email = "leadnrosantino@gmail.com";
+				$user->username = "leandrosantino";
+				$user->password = "senha";
+				array_push($data, [$user]);
+			}
 
 			return json_encode(["data" => $data]);
 		}
