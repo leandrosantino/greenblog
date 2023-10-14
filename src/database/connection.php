@@ -1,9 +1,11 @@
 <?php
 
-class Database extends SQLite3
-{
-  function __construct()
-  {
-    $this->open('database/app.db');
+const DATABASE_PATH = __DIR__."/app.db";
+
+class Database {
+
+  public static function connect(){
+    $db = new PDO("sqlite:".DATABASE_PATH);
+    return $db;
   }
 }

@@ -1,4 +1,4 @@
--- Active: 1696782225769@@127.0.0.1@3306
+-- Active: 1697236100467@@127.0.0.1@3306
 create table user (
 	user_id int not null primary key,
     email varchar(40),
@@ -48,4 +48,4 @@ create table post_tags (
 );
 
 
--- INSERT INTO user VALUES (1, 'leandrosantino@gmail.com','alpha45c','leandro')
+INSERT INTO user VALUES (3, 'leandrosantino@gmail.com','alpha45c','leandro')
