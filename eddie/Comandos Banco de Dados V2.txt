@@ -45,3 +45,21 @@ create table post_tags (
     foreign key (post_id) references posts(post_id),
     foreign key(tag_id) references tags(tag_id)
 );
+
+
+---Comandos para alteração e adição o elemento "auto_increment"---
+---nas tabelas "user,  posts, comments, categories, post_categories, tags, post_tags---
+
+alter table user modify column user_id int auto_increment;
+
+alter table tags modify column tag_id int auto_increment;
+
+alter table posts modify column post_id int auto_increment;
+
+alter table post_tags modify column post_id int auto_increment;
+
+alter table post_categories modify column post_id int auto_increment;
+
+alter table comments modify column id int auto_increment;
+
+alter table categories modify column category_id int auto_increment;
