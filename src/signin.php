@@ -1,10 +1,8 @@
 <?php 
-
     $erro = '';
     if(isset($_GET['erro'])){
         $erro = $_GET['erro'];
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,7 +28,7 @@
         <img id="logo_green" src="/assets/logo-green.png" alt="tree">
         
 
-        <form id="login_form" action="/" method="post">
+        <form id="login_form" action="/scripts/auth.php" method="post">
             <h1>Login</h1>
             <div>
                 <label for="">Email:</label>
