@@ -6,10 +6,10 @@ function logout(){
 }    
 
 if(session.username){
-  window.document.getElementById("user_case").innerHTML = `
+  $("#user_case").html(`
     <div>
         ${session.username}
         <button onclick="logout()" >Sair</button>
     </div>
-  `
+  `)
 }
