@@ -8,6 +8,11 @@ function logout(){
 if(session.username){
   $("#user_case").html(`
     <div>
+        <a href="/create_post.php">
+          <button>
+            Criar Post
+          </button>
+        </a>
         ${session.username}
         <button onclick="logout()" >Sair</button>
     </div>
