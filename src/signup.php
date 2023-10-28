@@ -26,11 +26,11 @@
             <h1>Login</h1>
             <div>
                 <label for="">Email:</label>
-                <input type="email" require>
+                <input type="email" required>
             </div>
             <div>
                 <label for="">Senha:</label>
-                <input type="password" require>
+                <input type="password" required>
             </div>
             <button>Entrar</button>
             <span>&copy;techSoluctions</span>

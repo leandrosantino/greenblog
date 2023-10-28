@@ -4,7 +4,9 @@
         return '
             <header>
                 <div>
-                    <img id="logo-white" src="/assets/logo-white.png" alt="logo-white">
+                    <a href="/" >
+                        <img id="logo-white" src="/assets/logo-white.png" alt="logo-white">
+                    </a>    
                 </div>
                 <div>
                     <nav>
