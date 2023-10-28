@@ -38,6 +38,7 @@
                 <label for="">Senha:</label>
                 <input type="password" name="password" required>
             </div>
+            <a href="/signup.php">cadastrar-se</a>
             <span><?=$erro?></span>
             <button>Entrar</button>
             <span>&copy;techSoluctions</span>

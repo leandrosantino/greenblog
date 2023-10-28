@@ -22,25 +22,41 @@ function get_user_by_email($email){
 
 }
 
+function get_user_by_username($username){
+  global $db;
+  $sql = "--sql
+		SELECT * FROM user WHERE username = '$username'
+	";
+
+  $query = $db->prepare($sql);
+	$query->execute();
+  $query = $query->fetch(PDO::FETCH_ASSOC);
+  
+  if(!$query){
+    return false;
+  }
+  
+  return $query;
+
+}
+
 function create_user($data) {
   global $db;
+
 	$sql = "--sql
 		INSERT INTO user (
       email, password, username
     ) VALUES (
-			'{$data->email}',
-			'{$data->password}',
-			'{$data->username}'
+			'$data->email',
+			'$data->password',
+			'$data->username'
 		)
 	";
 
 	$query = $db->prepare($sql);
-	$query->execute();
-	
-	if(!$query){
-		return json_encode(["error" => "insert failure"]);
-	}
-	return json_encode(["data" => $data]);
+	$query = $query->execute();
+
+	return $query;
 }
 
 function get_users(){
@@ -59,7 +75,7 @@ function get_users(){
 function create_comment($data){
 	global $db;
 
-	$sql = "
+	$sql = "--sql
 		INSERT INTO comments (post_id, owner_id, content) VALUES (
 			$data->post_id,
 			$data->user_id,
