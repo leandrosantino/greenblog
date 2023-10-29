@@ -29,7 +29,7 @@
         
 
         <form id="login_form" method="post" action="/scripts/create_user.php">
-            <h1>Login</h1>
+            <h1>Cadastre-se</h1>
             <div>
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="username" required>
