@@ -1,65 +1,47 @@
-create table user (
-	user_id int not null primary key,
+create table if not exists user (
+	user_id int not null primary key auto_increment,
     email varchar(40),
     password varchar(40),
     username varchar(16)
 );
 
-create table posts (
-	post_id int not null primary key,
+create table if not exists posts (
+	post_id int not null primary key auto_increment,
     owner_id int not null references user(user_id),
     content text,
-    created_at timestamp
+    created_at timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
-create table comments (
-	id int not null primary key,
+create table if not exists comments (
+	id int not null primary key auto_increment,
     post_id int not null references posts(post_id),
     owner_id int not null references user(user_id),
     content text,
-    created_at timestamp
+    created_at timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
-create table categories (
-    category_id int not null primary key,
+create table if not exists categories (
+    category_id int not null primary key auto_increment,
     category_name varchar(50)
 );
 
-create table post_categories (
-    post_id int not null,
+create table if not exists post_categories (
+    post_id int not null auto_increment,
     category_id int not null,
     primary key (post_id, category_id),
     foreign key (post_id) references posts(post_id),
     foreign key (category_id) references categories(category_id)
 );
 
-create table tags (
-    tag_id int not null primary key,
+create table if not exists tags (
+    tag_id int not null primary key auto_increment,
     tag_name varchar(50)
 );
 
-create table post_tags (
-    post_id int not null,
+create table if not exists post_tags (
+    post_id int not null auto_increment,
     tag_id int not null,
     primary key (post_id, tag_id),
     foreign key (post_id) references posts(post_id),
     foreign key(tag_id) references tags(tag_id)
 );
-
-
----Comandos para alteração e adição o elemento "auto_increment"---
----nas tabelas "user,  posts, comments, categories, post_categories, tags, post_tags---
-
-alter table user modify column user_id int auto_increment;
-
-alter table tags modify column tag_id int auto_increment;
-
-alter table posts modify column post_id int auto_increment;
-
-alter table post_tags modify column post_id int auto_increment;
-
-alter table post_categories modify column post_id int auto_increment;
-
-alter table comments modify column id int auto_increment;
-
-alter table categories modify column category_id int auto_increment;
