@@ -42,6 +42,7 @@
                 <label for="">Senha:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <a href="/signin.php">Já tenho uma conta!</a>
             <span><?=$erro?></span>
             <button>Cadastrar</button>
             <span>&copy;techSoluctions</span>

@@ -99,7 +99,7 @@ function get_comments_by_post_id(String $post_id){
 		SELECT comments.*, user.username 
 		FROM comments, user 
 		WHERE user.user_id = comments.owner_id AND post_id = '$post_id'
-		ORDER BY comments.id DESC
+		ORDER BY comments.created_at DESC
 	";	
 
   $query = $db->prepare($sql);
