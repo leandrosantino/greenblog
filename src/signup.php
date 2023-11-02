@@ -1,3 +1,9 @@
+<?php 
+    $erro = '';
+    if(isset($_GET['erro'])){
+        $erro = $_GET['erro'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,17 +28,23 @@
         <img id="logo_green" src="../../assets/logo-green.png" alt="tree">
         
 
-        <form id="login_form" action="/">
-            <h1>Login</h1>
+        <form id="login_form" method="post" action="/scripts/create_user.php">
+            <h1>Cadastre-se</h1>
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="username" required>
+            </div>
             <div>
                 <label for="">Email:</label>
-                <input type="email" require>
+                <input type="email" id="email" name="email" required>
             </div>
             <div>
                 <label for="">Senha:</label>
-                <input type="password" require>
+                <input type="password" id="password" name="password" required>
             </div>
-            <button>Entrar</button>
+            <a href="/signin.php">Já tenho uma conta!</a>
+            <span><?=$erro?></span>
+            <button>Cadastrar</button>
             <span>&copy;techSoluctions</span>
         </form>
         

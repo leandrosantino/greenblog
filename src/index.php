@@ -1,4 +1,10 @@
-<?php include './components/header.php'?>
+<?php 
+  include './components/header.php';
+  include './database/database.php';
+
+  $posts = get_all_posts();
+  
+?>
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -15,13 +21,25 @@
   <?=get_header()?>
 
   <main id="main_home">
-    <div>
-      <h1>post</h1>
-      <p>Lorem ipsum, dolor adipisicing elit. Est deserunt nostrum doloribus, saepe modi </p>
-      <a href="/post.php?id=aiusdpfiuasdigf">
-        ver mais...
-      </a>
-    </div>
+
+    <?php
+      foreach ($posts as &$post){
+
+        $title = &$post['title'];
+        $content = &$post['content'];
+        $post_id = &$post['post_id'];
+
+        echo "
+          <div>
+            <h1>$title</h1>
+            <p>$content</p>
+            <a href=\"/post.php?id=$post_id\">
+              ver mais...
+            </a>
+          </div>
+        ";
+      }
+    ?>
 
   </main>
 
