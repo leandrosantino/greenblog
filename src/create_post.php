@@ -20,6 +20,8 @@
 
     <form action="/scripts/create_post.php" method="post">
 
+      <input type="text" name="user_id" hidden id="user_id" >
+
       <label for="title">Título:</label>
       <input name="title" id="title" type="text"  required/>
 
