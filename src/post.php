@@ -27,24 +27,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/posts.css">
   <script src="/scripts/jquery.js" ></script>
   <title>Post</title>
 </head>
 <body>
   <?=get_header()?>
 
-  <main>
+  <main id="container">
 
-    <div>
+    <div id="content">
+
       <h1><?=$post['title']?></h1>
       <p><?=$post['content']?></p>
-      <form action="/scripts/comment.php" method="post">
+      <p><?=$post['content']?></p>
+
+      <form action="/scripts/comment.php" method="post" id="form">
+
         <input type="text" hidden name="id" value="<?=$post_id?>">
         <input type="text" hidden name="user_id" id="user_id">
-        <textarea name="comment" id="comment_field" cols="30" rows="10" disabled required></textarea>
+
+        <textarea name="comment" id="comment_field" cols="30" rows="10" disabled required placeholder=Comentário></textarea>
         <button id="send_comment_bt"  disabled >Enviar</button>
       </form>
+
     </div>
+
     <div>
 
       <?php 

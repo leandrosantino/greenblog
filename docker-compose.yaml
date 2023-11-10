@@ -4,7 +4,7 @@ services:
   php:
     image: php:8.3.0RC2-apache
     ports:
-      - "3337:80"
+      - "3333:80"
     volumes:
       - ./src:/var/www/html
 

@@ -1,0 +1,39 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#content {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px 0;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+    width: 800px;
+    height: 90px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 8px;
+}
+
+#send_comment_bt {
+    padding: 8px;
+    background-color: var(--primary-2);
+    color: var(--white);
+    font-weight: 500;
+}

@@ -62,7 +62,8 @@ header nav a:first-child {
   color: var(--white);
 }
 
-#login_link, button {
+#login_link,
+button {
   background-color: var(--white);
   color: var(--primary-2);
   border: none;
@@ -73,7 +74,8 @@ header nav a:first-child {
   text-decoration: none;
 }
 
-button:hover, #login_link:hover {
+button:hover,
+#login_link:hover {
   opacity: .8;
   cursor: pointer;
 }
@@ -82,11 +84,9 @@ main {
   width: 100%;
   height: calc(100vh - var(--header-height));
   margin-top: var(--header-height);
-  width: 100%;
-  max-width: 800px;
 }
 
-input{
+input {
   padding: 8px;
   border: 1.5px solid var(--font-3);
   font-size: 14px;
