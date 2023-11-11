@@ -39,7 +39,7 @@
     <div id="content">
 
       <h1><?=$post['title']?></h1>
-      <p><?=$post['content']?></p>
+      <p id="subtitle" ><?=$post['subtitle']?></p>
       <p><?=$post['content']?></p>
 
       <form action="/scripts/comment.php" method="post" id="form">
@@ -53,7 +53,9 @@
 
     </div>
 
-    <div>
+    <div id="comments" >
+
+      <h3>Comentários:</h3>
 
       <?php 
         if($comments){
@@ -62,11 +64,13 @@
             $username = &$comment['username'];
             $date = &$comment['created_at'];
             echo "
-              <div>
-                <span>$username</span>    
-                <span>$date</span>    
+              <div id=\"comment\" >
+                <div id=\"comments_title\" >
+                  <span>$username</span>    
+                  <span> há 3 min</span>    
+                </div>
                 <p>$content</p>
-              </div> <br>
+              </div>
             ";
           } 
         }

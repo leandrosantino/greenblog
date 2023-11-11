@@ -1,4 +1,4 @@
--- Active: 1698888367937@@127.0.0.1@3306
+
 
 create table if not exists user (
 	user_id integer primary key autoincrement,
@@ -12,7 +12,8 @@ create table if not exists posts (
     owner_id int not null references user(user_id),
     title varchar(100),
     content text,
-    created_at timestamp DEFAULT CURRENT_TIMESTAMP
+    created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+    subtitle text(100)
 );
 
 create table if not exists comments (
@@ -54,10 +55,12 @@ INSERT INTO user VALUES (1, 'leandrosantino@gmail.com','alpha45c','leandro');
 INSERT INTO posts (
     owner_id,
     title,
+    subtitle,
     content
 ) VALUES (
     1,
     '10 Dicas para um Jardim Sustentável',
+    'Davi calvo',
     'Neste post, exploraremos 10 dicas essenciais para criar um jardim sustentável que não apenas embeleza sua casa, mas também beneficia o meio ambiente. Desde a escolha de plantas nativas até a implementação de técnicas de conservação de água, você descobrirá maneiras de tornar seu jardim mais ecológico. Além disso, forneceremos orientações sobre como compostar resíduos de jardim e criar habitats para a vida selvagem local. Transforme seu espaço verde em um santuário de sustentabilidade com essas ideias incríveis!'
 );
 

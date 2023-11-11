@@ -41,12 +41,12 @@ function get_user_by_username($username){
 }
 
 function create_user($data) {
-  global $db;
+  	global $db;
 
 	$sql = "--sql
 		INSERT INTO user (
-      email, password, username
-    ) VALUES (
+		email, password, username
+	) VALUES (
 			'$data->email',
 			'$data->password',
 			'$data->username'
@@ -142,5 +142,25 @@ function get_post_by_id(String $id){
   }
   
   return $query;
+
+}	
+
+function create_post($data){
+	global $db;
+
+	$sql = "--sql
+		INSERT INTO posts (
+		owner_id, title, content
+	) VALUES (
+		'$data->email',
+		'$data->password',
+		'$data->username'
+	)
+	";
+
+	$query = $db->prepare($sql);
+	$query = $query->execute();
+
+	return $query;
 
 }
