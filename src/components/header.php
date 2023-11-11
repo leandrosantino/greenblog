@@ -9,11 +9,7 @@
                     </a>    
                 </div>
                 <div>
-                    <nav>
-                        <a href="/">Home</a>
-                        <a href="">Conteúdos</a>
-                        <a href="">Temas</a>
-                    </nav>
+                    
                 </div>
                 <div id="user_case" >   
                     <a id="login_link" href="signin.php" >Entrar</a>
@@ -25,3 +21,8 @@
         
 ?>
 
+<!-- <nav>
+    <a href="/">Home</a>
+    <a href="">Conteúdos</a>
+    <a href="">Temas</a>
+</nav> -->

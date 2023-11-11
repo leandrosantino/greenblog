@@ -40,7 +40,7 @@
 
       <h1><?=$post['title']?></h1>
       <p id="subtitle" ><?=$post['subtitle']?></p>
-      <p><?=$post['content']?></p>
+      <p id="content_body" ><?=$post['content']?></p>
 
       <form action="/scripts/comment.php" method="post" id="form">
 
@@ -48,7 +48,7 @@
         <input type="text" hidden name="user_id" id="user_id">
 
         <textarea name="comment" id="comment_field" cols="30" rows="10" disabled required placeholder=Comentário></textarea>
-        <button id="send_comment_bt"  disabled >Enviar</button>
+        <button id="send_comment_bt"  disabled >Comentar</button>
       </form>
 
     </div>
