@@ -1,79 +1,58 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+
 :root {
   --primary-1: #D6FF97;
   --primary-2: #4C7D02;
   --primary-3: #213700;
+  --alert-1: rgb(238, 108, 68);
   --font-1: #969696;
   --font-2: #343434;
   --font-3: #2D2D2D;
   --white: #FFFFFF;
+  --back-color: #FFFFFF;
 
-  --header-height: 55px
+  /* --primary-1: #D6FF97;
+  --primary-2: #4C7D02;
+  --primary-3: #213700;
+  --font-1: #b6b6b6;
+  --font-2: rgb(212, 212, 212);
+  --font-3: #FFFFFF;
+  --back-color: #2D2D2D; */
+
+  --white: #FFFFFF;
+
+  --header-height: 45px
+}
+
+body {
+  background-color: var(--back-color);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
   color: var(--font-3);
 }
 
-header {
-  background-color: var(--primary-2);
-  width: 100%;
-  height: var(--header-height);
-  position: fixed;
-  top: 0;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-}
-
-#logo-white {
-  width: 150px;
-}
-
-header>div {
-  width: 33.33%;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-}
-
-header div:first-child {
-  justify-content: start;
-}
-
-header div:last-child {
-  justify-content: end;
-}
-
-header nav {
-  width: 100%;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-
-}
-
-header nav a:first-child {
-  color: var(--white);
-}
-
-#login_link, button {
-  background-color: var(--white);
-  color: var(--primary-2);
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 8px;
-  border-radius: 4px;
+a {
   text-decoration: none;
+  color: var(--font-3);
 }
 
-button:hover, #login_link:hover {
+button {
+  background-color: var(--white);
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+button:hover {
   opacity: .8;
   cursor: pointer;
 }
@@ -82,14 +61,22 @@ main {
   width: 100%;
   height: calc(100vh - var(--header-height));
   margin-top: var(--header-height);
-  width: 100%;
-  max-width: 800px;
 }
 
-input{
+input {
   padding: 8px;
   border: 1.5px solid var(--font-3);
   font-size: 14px;
   text-indent: 4px;
   border-radius: 4px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  overflow-x: auto;
+  padding: 16px;
 }

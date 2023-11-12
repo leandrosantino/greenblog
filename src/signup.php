@@ -28,7 +28,7 @@
         <img id="logo_green" src="../../assets/logo-green.png" alt="tree">
         
 
-        <form id="login_form" method="post" action="/scripts/create_user.php">
+        <form id="login_form" method="post" action="/actions/create_user.php">
             <h1>Cadastre-se</h1>
             <div>
                 <label for="name">Nome:</label>
@@ -42,7 +42,7 @@
                 <label for="">Senha:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <a href="/signin.php">Já tenho uma conta!</a>
+            <a href="/signin.php">Já tem uma conta? Faça Login</a>
             <span><?=$erro?></span>
             <button>Cadastrar</button>
             <span>&copy;techSoluctions</span>

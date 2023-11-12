@@ -1,0 +1,148 @@
+header {
+  background-color: var(--primary-2);
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+#logo-white {
+  width: 150px;
+  height: calc(var(--header-height) - 8px);
+  background-image: url(/assets/logo-white.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width:400px) {
+  #logo-white {
+    width: 35px;
+    height: calc(var(--header-height) - 12px);
+    background-image: url(/assets/small-logo-white.png);
+  }
+}
+
+header>div {
+
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+header div:first-child {
+  justify-content: start;
+}
+
+header div:last-child {
+  justify-content: end;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+
+}
+
+header nav a:first-child {
+  color: var(--white);
+}
+
+#login_icon {
+  font-size: 16px;
+  color: var(--white);
+  font-weight: 600;
+}
+
+#login_link>span:last-child {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#login_link {
+  padding: 4px 8px;
+  background-color: transparent;
+
+}
+
+#user_case {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+  padding: 0 8px;
+}
+
+#user_info {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 4px;
+}
+
+#user_info>button {
+  background-color: transparent;
+  padding: 4px;
+}
+
+#user {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#user>span {
+  color: var(--white);
+  font-size: 20px;
+}
+
+#new_post {
+  background-color: transparent;
+  border: 1.5px solid var(--white);
+}
+
+#add_icon,
+#new_post>span:first-child {
+  color: var(--white);
+  font-weight: 600;
+}
+
+#logout_icon {
+  color: var(--alert-1);
+  font-weight: 600;
+}
+
+#username {
+  color: var(--font-3);
+  padding: 12px;
+}
+
+.dropdown-menu>li>button:active {
+  color: var(--font-3);
+  background-color: var(--white)
+}
+
+.dropdown-menu>li:last-child>button {
+  color: var(--alert-1);
+}
+
+.dropdown-menu>li>hr {
+  margin: 12px 8px;
+}
+
+.dropdown-menu>li>button {
+  display: flex;
+  justify-content: space-between;
+}

@@ -25,10 +25,8 @@
         </div>
     </section>
     <section>
-        <img id="logo_green" src="/assets/logo-green.png" alt="tree">
-        
-
-        <form id="login_form" action="/scripts/auth.php" method="post">
+        <a href="/" ><img id="logo_green" src="/assets/logo-green.png" alt="tree"></a>
+        <form id="login_form" action="/actions/auth.php" method="post">
             <h1>Login</h1>
             <div>
                 <label for="">Email:</label>
@@ -38,7 +36,7 @@
                 <label for="">Senha:</label>
                 <input type="password" name="password" required>
             </div>
-            <a href="/signup.php">cadastrar-se</a>
+            <a href="/signup.php">Inscrever-se</a>
             <span><?=$erro?></span>
             <button>Entrar</button>
             <span>&copy;techSoluctions</span>
