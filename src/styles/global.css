@@ -5,6 +5,7 @@
   --primary-1: #D6FF97;
   --primary-2: #4C7D02;
   --primary-3: #213700;
+  --alert-1: rgb(238, 108, 68);
   --font-1: #969696;
   --font-2: #343434;
   --font-3: #2D2D2D;
@@ -68,4 +69,14 @@ input {
   font-size: 14px;
   text-indent: 4px;
   border-radius: 4px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  overflow-x: auto;
+  padding: 16px;
 }

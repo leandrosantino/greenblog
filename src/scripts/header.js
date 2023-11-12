@@ -24,6 +24,21 @@ if (session.username) {
           <span id="username"></span>
         </li>
         <li>
+          <button class="dropdown-item">
+            meus posts 
+            <span class="bi bi-postcard"></span>
+          </button>
+        </li>
+        <li>
+          <button class="dropdown-item">
+            tema
+            <span class="bi bi-moon-stars"></span>
+          </button>
+        </li>
+        <li>
+          <hr/>
+        </li>
+        <li>
           <button class="dropdown-item" onclick="logout()" >
             sair 
             <span id="logout_icon" class="bi bi-box-arrow-in-right"></span>

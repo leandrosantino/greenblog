@@ -120,7 +120,7 @@ header nav a:first-child {
 }
 
 #logout_icon {
-  color: var(--font-3);
+  color: var(--alert-1);
   font-weight: 600;
 }
 
@@ -132,6 +132,14 @@ header nav a:first-child {
 .dropdown-menu>li>button:active {
   color: var(--font-3);
   background-color: var(--white)
+}
+
+.dropdown-menu>li:last-child>button {
+  color: var(--alert-1);
+}
+
+.dropdown-menu>li>hr {
+  margin: 12px 8px;
 }
 
 .dropdown-menu>li>button {

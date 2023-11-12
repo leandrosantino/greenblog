@@ -12,6 +12,7 @@ $posts = get_all_posts();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/global.css">
+  <link rel="stylesheet" href="./styles/home.css">
   <script src="/scripts/jquery.js"></script>
   <title>Home</title>
 </head>
@@ -19,29 +20,34 @@ $posts = get_all_posts();
 <body>
   <?= $header ?>
 
-  <main id="main_home">
+  <main id="container">
 
-    <?php
-    foreach ($posts as &$post) {
+    <div id="content">
+      <?php foreach ($posts as &$post) {
 
-      $title = &$post['title'];
-      $content = &$post['content'];
-      $post_id = &$post['post_id'];
+        $title = &$post['title'];
+        $content = &$post['content'];
+        $content = '"' . substr($content, 0,  310) . '..."';
+        $post_id = &$post['post_id'];
+        $subtitle = &$post['subtitle'];
 
-      echo <<<HTML
+        echo <<<HTML
 
-          <div>
-            <h1>$title</h1>
-            <p>$content</p>
-            <a href="/post.php?id=$post_id">
-              ver mais...
-            </a>
-          </div>
+            <div id="post" >
+              <h1 class="h3">$title</h1>
+              <p class="h6">$subtitle</p>
+              <p  >$content</p>
+              <div>
+                <a id="view_more" href="/post.php?id=$post_id">
+                    ver mais...
+                </a>
+              </div>
+            </div>
 
-        HTML;
-    }
-    ?>
+          HTML;
+      } ?>
 
+    </div>
   </main>
 
 </body>
