@@ -28,7 +28,7 @@
         <img id="logo_green" src="../../assets/logo-green.png" alt="tree">
         
 
-        <form id="login_form" method="post" action="/scripts/create_user.php">
+        <form id="login_form" method="post" action="/actions/create_user.php">
             <h1>Cadastre-se</h1>
             <div>
                 <label for="name">Nome:</label>

@@ -26,7 +26,7 @@
     </section>
     <section>
         <a href="/" ><img id="logo_green" src="/assets/logo-green.png" alt="tree"></a>
-        <form id="login_form" action="/scripts/auth.php" method="post">
+        <form id="login_form" action="/actions/auth.php" method="post">
             <h1>Login</h1>
             <div>
                 <label for="">Email:</label>
