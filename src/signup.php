@@ -31,9 +31,7 @@ if (isset($_GET['user-erro'])) {
       </div>
     </section>
     <section>
-      <img id="logo_green" src="../../assets/logo-green.png" alt="tree">
-
-
+      <a href="/" id="logo_green"></a>
       <form id="login_form" method="post" action="/actions/create_user.php">
         <h1>Cadastre-se</h1>
         <div>
