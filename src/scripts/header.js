@@ -7,12 +7,7 @@ function logout() {
 
 if (session.username) {
   $("#user_case").html`
-    <a href="/create_post.php">
-      <button id="new_post">
-        <span>Criar</span>
-        <span id="add_icon" class="bi bi-plus-circle"></span>
-      </button>
-    </a>
+    <div id="new_post_case" ></div>
     <div id="user_info" class="dropdown">
       <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <div id="user"  >
@@ -46,7 +41,19 @@ if (session.username) {
         </li>
       </ul>
     </div>
-  `
+  `;
+
+  if (session.isAdmin) {
+    $('#new_post_case').html`
+      <a href="/create_post.php">
+        <button id="new_post">
+          <span>Criar</span>
+          <span id="add_icon" class="bi bi-plus-circle"></span>
+        </button>
+      </a>
+    `
+  }
+
   $('#username').html(session.username)
 }
 
