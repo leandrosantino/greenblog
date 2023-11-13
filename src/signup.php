@@ -21,45 +21,47 @@ if (isset($_GET['user-erro'])) {
 </head>
 
 <body>
-  <section>
-    <span>
-      Um lugar mais verde na Internet
-    </span>
-    <div>
-      <img src="../../assets/tree.png" alt="tree">
-    </div>
-  </section>
-  <section>
-    <img id="logo_green" src="../../assets/logo-green.png" alt="tree">
-
-
-    <form id="login_form" method="post" action="/actions/create_user.php">
-      <h1>Cadastre-se</h1>
+  <main>
+    <section>
+      <span>
+        Um lugar mais verde na Internet
+      </span>
       <div>
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="username" required>
-        <span><?= $user_erro ?></span>
+        <img src="../../assets/tree.png" alt="tree">
       </div>
-      <div>
-        <label for="">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <span><?= $email_erro ?></span>
-      </div>
-      <div>
-        <label for="">Senha:</label>
-        <input type="password" id="password" name="password" required>
-        <span></span>
-      </div>
-      <a href="/signin.php">Já tem uma conta? Faça Login</a>
+    </section>
+    <section>
+      <img id="logo_green" src="../../assets/logo-green.png" alt="tree">
 
-      <button>
-        <span id="login_icon" class="bi bi-box-arrow-in-left"></span>
-        Cadastrar
-      </button>
-      <span>&copy;techSoluctions</span>
-    </form>
 
-  </section>
+      <form id="login_form" method="post" action="/actions/create_user.php">
+        <h1>Cadastre-se</h1>
+        <div>
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="username" required>
+          <span><?= $user_erro ?></span>
+        </div>
+        <div>
+          <label for="">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <span><?= $email_erro ?></span>
+        </div>
+        <div>
+          <label for="">Senha:</label>
+          <input type="password" id="password" name="password" required>
+          <span></span>
+        </div>
+        <a href="/signin.php">Já tem uma conta? Faça Login</a>
+
+        <button>
+          <span id="login_icon" class="bi bi-box-arrow-in-left"></span>
+          Cadastrar
+        </button>
+        <span>&copy;techSoluctions</span>
+      </form>
+
+    </section>
+  </main>
   <script src="/scripts/theme.js"></script>
 </body>
 
