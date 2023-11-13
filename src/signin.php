@@ -31,9 +31,7 @@ if (isset($_GET['pass-erro'])) {
       </div>
     </section>
     <section>
-      <a href="/" id="logo_green">
-        <!-- <img  src="/assets/logo-green.png" alt="tree"> -->
-      </a>
+      <a href="/" id="logo_green"></a>
       <form id="login_form" action="/actions/auth.php" method="post">
         <h1>Login</h1>
         <div>
