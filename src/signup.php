@@ -60,6 +60,8 @@ if (isset($_GET['user-erro'])) {
     </form>
 
   </section>
+  <script src="/scripts/theme.js"></script>
 </body>
+
 
 </html>

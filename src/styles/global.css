@@ -5,24 +5,22 @@
   --primary-1: #D6FF97;
   --primary-2: #4C7D02;
   --primary-3: #213700;
+
   --alert-1: rgb(238, 108, 68);
-  --font-1: #969696;
-  --font-2: #343434;
-  --font-3: #2D2D2D;
-  --white: #FFFFFF;
-  --back-color: #FFFFFF;
-
-  /* --primary-1: #D6FF97;
-  --primary-2: #4C7D02;
-  --primary-3: #213700;
-  --font-1: #b6b6b6;
-  --font-2: rgb(212, 212, 212);
-  --font-3: #FFFFFF;
-  --back-color: #2D2D2D; */
-
   --white: #FFFFFF;
 
   --header-height: 45px
+}
+
+input,
+textarea {
+  background-color: var(--back-color-input);
+  color: var(--font-3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--font-2);
 }
 
 body {
@@ -34,6 +32,9 @@ body {
   padding: 0;
   box-sizing: border-box;
   color: var(--font-3);
+
+  transition: .3s;
+
 }
 
 a {
@@ -65,7 +66,7 @@ main {
 
 input {
   padding: 8px;
-  border: 1.5px solid var(--font-3);
+  border: 1px solid var(--font-2);
   font-size: 14px;
   text-indent: 4px;
   border-radius: 4px;

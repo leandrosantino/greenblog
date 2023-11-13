@@ -26,11 +26,12 @@ if (!$user) {
   $session_data = json_encode((object) [
     "userid" => $user["user_id"],
     "username" => $user["username"],
-    "isAdmin" => $user['isAdmin']
+    "isAdmin" => $user['isAdmin'],
   ]);
 
   echo <<<HTML
     <script>
+      window.localStorage.setItem('theme', 'ligth')
       window.sessionStorage.setItem('green_blog_session', '$session_data')
       window.location.replace('$host')
     </script>

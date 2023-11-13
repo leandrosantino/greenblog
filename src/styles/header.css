@@ -31,7 +31,7 @@ header {
 header>div {
 
   display: flex;
-  gap: 12px;
+  gap: 8px;
   justify-content: center;
 }
 
@@ -122,16 +122,15 @@ header nav a:first-child {
 
 #username {
   color: var(--font-3);
-  padding: 12px;
+}
+
+.dropdown-menu>li:first-child {
+  padding: 0 0 8px 16px;
 }
 
 .dropdown-menu>li>button:active {
   color: var(--font-3);
   background-color: var(--white)
-}
-
-.dropdown-menu>li:last-child>button {
-  color: var(--alert-1);
 }
 
 .dropdown-menu>li>hr {
@@ -141,4 +140,33 @@ header nav a:first-child {
 .dropdown-menu>li>button {
   display: flex;
   justify-content: space-between;
+}
+
+#user_menu>li>button {
+  color: var(--font-3);
+}
+
+#user_menu {
+  width: 230px;
+  background-color: var(--back-color-input);
+  padding: 8px;
+}
+
+#user_menu>li>button:hover {
+  background-color: var(--user-menu-hover-color);
+}
+
+
+#user_menu>li:last-child>button {
+  opacity: 1;
+  color: var(--alert-1);
+}
+
+#theme_button {
+  background-color: transparent;
+  color: var(--white);
+}
+
+#theme_button>span {
+  color: var(--white);
 }
