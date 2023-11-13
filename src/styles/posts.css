@@ -85,7 +85,7 @@ textarea {
 
 #comment_title {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
   font-size: 12px;
 }
@@ -98,6 +98,7 @@ textarea {
   font-weight: 600;
 }
 
+#comment_title>span:nth-child(2),
 #comment_title>span:last-child {
   color: var(--font-1);
   font-weight: 500;

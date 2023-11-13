@@ -7,4 +7,3 @@ services:
       - "3338:80"
     volumes:
       - ./src:/var/www/html
-

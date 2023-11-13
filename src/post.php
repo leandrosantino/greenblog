@@ -29,12 +29,12 @@ $comments = get_comments_by_post_id($post_id);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+  <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
   <link rel="stylesheet" href="/styles/global.css">
   <link rel="stylesheet" href="/styles/posts.css">
   <script src="/scripts/jquery.js"></script>
 
-  <title>Post</title>
+  <title><?= $post['title'] ?></title>
 </head>
 
 <body>
@@ -76,12 +76,37 @@ $comments = get_comments_by_post_id($post_id);
           $content = &$comment['content'];
           $username = &$comment['username'];
           $date = &$comment['created_at'];
+
+          $timezone = new DateTimeZone('America/Sao_Paulo');
+          $now = new DateTime('now', $timezone);
+          $date = new DateTime($date);
+
+          $diff = $now->diff($date);
+
+          $e = 'há ' . $diff->d . ' dias';
+          if ($diff->d <= 1) {
+            $e = 'há ' . $diff->h . ' h';
+          }
+          if ($diff->h <= 1) {
+            $e = 'há ' . $diff->i . ' min';
+          }
+          if ($diff->i <= 1) {
+            $e = 'agora';
+          }
+          if ($diff->d > 7) {
+            $e = $date->format('d/m/Y');
+          }
+          if ($diff->d == 7) {
+            $e = 'há 1 sem';
+          }
+
           echo <<<HTML
 
               <div id="comment" >
                 <div id="comment_title" >
-                  <span>$username</span>    
-                  <span> há 3 min</span>    
+                  <span>$username</span>  
+                  <span class="bi bi-calendar-event"></span>  
+                  <span> $e</span>    
                 </div>
                 <p>$content</p>
               </div>
