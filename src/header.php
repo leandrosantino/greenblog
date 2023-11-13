@@ -7,16 +7,20 @@ return <<<HTML
         <!-- <img  src="/assets/logo-white.png" alt="logo-white"> -->
       </a>    
     </div>
-    <div id="user_case" >   
-      <a href="signin.php" >
-        <button id="login_link">
-          <span id="login_icon" class="bi bi-box-arrow-in-left"></span>
-          <span>Entrar</span>
-        </button>
-      </a>
+    <div  >   
+      <button id="theme_button" class="dropdown-item" ></button> 
+      <div id="user_case">
+        <a href="signin.php" >
+          <button id="login_link">
+            <span id="login_icon" class="bi bi-box-arrow-in-left"></span>
+            <span>Entrar</span>
+          </button>
+        </a>
+      </div>
     </div>
   </header>
   <script src="/scripts/header.js" ></script>
+  <script src="/scripts/theme.js" ></script>
  
 HTML;
 ?>
