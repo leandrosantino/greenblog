@@ -1,7 +1,11 @@
 <?php
-$erro = '';
-if (isset($_GET['erro'])) {
-    $erro = $_GET['erro'];
+$email_erro = '';
+$user_erro = '';
+if (isset($_GET['email-erro'])) {
+  $email_erro = $_GET['email-erro'];
+}
+if (isset($_GET['user-erro'])) {
+  $user_erro = $_GET['user-erro'];
 }
 ?>
 <!DOCTYPE html>
@@ -34,18 +38,24 @@ if (isset($_GET['erro'])) {
       <div>
         <label for="name">Nome:</label>
         <input type="text" id="name" name="username" required>
+        <span><?= $user_erro ?></span>
       </div>
       <div>
         <label for="">Email:</label>
         <input type="email" id="email" name="email" required>
+        <span><?= $email_erro ?></span>
       </div>
       <div>
         <label for="">Senha:</label>
         <input type="password" id="password" name="password" required>
+        <span></span>
       </div>
       <a href="/signin.php">Já tem uma conta? Faça Login</a>
-      <span><?= $erro ?></span>
-      <button>Cadastrar</button>
+
+      <button>
+        <span id="login_icon" class="bi bi-box-arrow-in-left"></span>
+        Cadastrar
+      </button>
       <span>&copy;techSoluctions</span>
     </form>
 

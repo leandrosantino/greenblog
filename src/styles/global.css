@@ -80,3 +80,9 @@ input {
   overflow-x: auto;
   padding: 16px;
 }
+
+#login_icon {
+  font-size: 16px;
+  color: var(--white);
+  font-weight: 600;
+}

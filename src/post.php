@@ -18,8 +18,6 @@ if (!$post) {
 
 $comments = get_comments_by_post_id($post_id);
 
-// var_dump($comments); exit();
-
 ?>
 
 <!DOCTYPE html>
@@ -84,20 +82,20 @@ $comments = get_comments_by_post_id($post_id);
           $diff = $now->diff($date);
 
           $e = 'há ' . $diff->d . ' dias';
-          if ($diff->d <= 1) {
-            $e = 'há ' . $diff->h . ' h';
+          if ($diff->i <= 1) {
+            $e = 'agora';
           }
           if ($diff->h <= 1) {
             $e = 'há ' . $diff->i . ' min';
           }
-          if ($diff->i <= 1) {
-            $e = 'agora';
-          }
-          if ($diff->d > 7) {
-            $e = $date->format('d/m/Y');
+          if ($diff->d <= 1) {
+            $e = 'há ' . $diff->h . ' h';
           }
           if ($diff->d == 7) {
             $e = 'há 1 sem';
+          }
+          if ($diff->d > 7) {
+            $e = $date->format('d/m/Y');
           }
 
           echo <<<HTML

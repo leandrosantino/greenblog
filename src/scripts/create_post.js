@@ -1,11 +1,12 @@
-try{
+try {
   const session = JSON.parse(window.sessionStorage.getItem("green_blog_session"))
-  if(session.username){
-    console.log(session)
-    $("#user_id").prop('value', session.userid)
+  $("#user_id").prop('value', session.userid)
+
+  if (!session.isAdmin) {
+    window.location.replace(`http://${window.location.host}/`)
   }
-}catch{
+
+} catch {
   window.location.replace(`http://${window.location.host}/`)
 }
 
-  

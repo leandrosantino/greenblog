@@ -55,11 +55,7 @@ header nav a:first-child {
   color: var(--white);
 }
 
-#login_icon {
-  font-size: 16px;
-  color: var(--white);
-  font-weight: 600;
-}
+
 
 #login_link>span:last-child {
   color: var(--white);
