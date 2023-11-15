@@ -22,10 +22,14 @@ if (session.username) {
           <span id="username"></span>
         </li>
         <li>
-          <button class="dropdown-item">
-            Meus Comentários
-            <span class="bi bi-chat-left-dots"></span>
-          </button>
+          <form method="post" action="/comments.php" >
+            <input hidden name="user_id" value="${session.userid}"/>
+            <button class="dropdown-item">
+              Meus Comentários
+              <span class="bi bi-chat-left-dots"></span>
+            </button>
+          </form>
+          
         </li>
         <li>
           <hr/>
@@ -40,7 +44,9 @@ if (session.username) {
     </div>
   `)
 
-  if (session.isAdmin) {
+  console.log()
+
+  if (session.isAdmin && window.location.pathname.match('create_post') === null) {
     $('#new_post_case').html(`
       <a href="/create_post.php">
         <button id="new_post">

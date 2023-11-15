@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('America/Sao_Paulo');
+
 const DATABASE_PATH = __DIR__ . "/app.db";
 
 $db = new PDO("sqlite:" . DATABASE_PATH);
@@ -79,11 +81,15 @@ function create_comment($data)
 {
 	global $db;
 
+	$created_at = new DateTime();
+	$created_at = $created_at->format('Y-m-d H:i:s');
+
 	$sql = "--sql
-		INSERT INTO comments (post_id, owner_id, content) VALUES (
+		INSERT INTO comments (post_id, owner_id, content, created_at) VALUES (
 			$data->post_id,
 			$data->user_id,
-			'$data->content'
+			'$data->content',
+			'$created_at'
 		)
 	";
 
@@ -150,17 +156,42 @@ function get_post_by_id(String $id)
 	return $query;
 }
 
+function get_comments_by_user_id(String $id)
+{
+	global $db;
+	$sql = "--sql
+		SELECT comments.*, posts.title, posts.post_id 
+		FROM comments 
+		INNER JOIN posts 
+		ON comments.post_id = posts.post_id 
+		WHERE comments.owner_id = '$id'
+		ORDER BY comments.created_at DESC
+	";
+
+	$query = $db->prepare($sql);
+	$query->execute();
+	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+
+	if (!$query) {
+		return false;
+	}
+
+	return $query;
+}
+
 function create_post($data)
 {
 	global $db;
 
 	$sql = "--sql
 		INSERT INTO posts (
-		owner_id, title, content
+		owner_id, title, content, subtitle
 	) VALUES (
-		'$data->email',
-		'$data->password',
-		'$data->username'
+		'$data->user_id',
+		'$data->title',
+		'$data->content',
+		'$data->subtitle'
+		
 	)
 	";
 
@@ -168,4 +199,43 @@ function create_post($data)
 	$query = $query->execute();
 
 	return $query;
+}
+
+
+function calculate_time_diff(String $date_str)
+{
+
+	$now = new DateTime('now');
+	$date = new DateTime($date_str);
+	$diff = $now->diff($date);
+
+	$days = $diff->days;
+	$hours = $diff->h;
+	$minutes = $diff->i;
+
+	if ($days > 7) {
+		return $date->format('d/m/Y');
+	}
+
+	if ($days == 7) {
+		return 'há 1 sem';
+	}
+
+	if ($days >= 1) {
+		return 'há ' . $days . ' d';
+	}
+
+	if ($days == 0 && $hours > 1 && $minutes >= 0) {
+		return 'há ' . $hours . ' h';
+	}
+
+	if ($days == 0 && $hours <= 1 && $minutes >= 1) {
+		return 'há ' . $minutes . ' min';
+	}
+
+	if ($days == 0 && $hours == 0 && $minutes == 0) {
+		return 'agora';
+	}
+
+	return '';
 }

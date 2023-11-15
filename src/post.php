@@ -44,7 +44,9 @@ $comments = get_comments_by_post_id($post_id);
 
       <h1 class="h1"><?= $post['title'] ?></h1>
       <p class="h4" id="subtitle"><?= $post['subtitle'] ?></p>
-      <p id="content_body"><?= $post['content'] ?></p>
+      <div id="content_body">
+        <?= $post['content'] ?>
+      </div>
 
       <form action="/actions/comment.php" method="post" id="form">
 
@@ -74,28 +76,9 @@ $comments = get_comments_by_post_id($post_id);
           $username = &$comment['username'];
           $date = &$comment['created_at'];
 
-          $timezone = new DateTimeZone('America/Sao_Paulo');
-          $now = new DateTime('now', $timezone);
-          $date = new DateTime($date);
+          $date = &$comment['created_at'];
 
-          $diff = $now->diff($date);
-
-          $e = 'há ' . $diff->d . ' dias';
-          if ($diff->d > 7) {
-            $e = $date->format('d/m/Y');
-          }
-          if ($diff->d == 7) {
-            $e = 'há 1 sem';
-          }
-          if ($diff->d <= 1) {
-            $e = 'há ' . $diff->h . ' h';
-          }
-          if ($diff->h <= 1) {
-            $e = 'há ' . $diff->i . ' min';
-          }
-          if ($diff->i <= 1) {
-            $e = 'agora';
-          }
+          $created_at = calculate_time_diff($date);
 
           echo <<<HTML
 
@@ -103,7 +86,7 @@ $comments = get_comments_by_post_id($post_id);
                 <div id="comment_title" >
                   <span>$username</span>  
                   <span class="bi bi-calendar-event"></span>  
-                  <span> $e</span>    
+                  <span> $created_at</span>    
                 </div>
                 <p>$content</p>
               </div>

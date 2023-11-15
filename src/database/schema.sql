@@ -113,3 +113,11 @@ VALUES (
         'subtitulo',
         'Se você está sonhando com uma escapada, mas o orçamento está apertado, não se preocupe. Neste post, compartilhamos uma lista de sete destinos de viagem incríveis que são acessíveis para todos os tipos de viajantes. Desde as praias tropicais de Bali até as paisagens deslumbrantes das Montanhas Rochosas, você encontrará opções para todos os gostos. Vamos também dar dicas sobre como economizar dinheiro em acomodações, alimentação e transporte enquanto desfruta de experiências inesquecíveis. Não deixe que o orçamento limite seus sonhos de viagem - comece a planejar sua próxima aventura agora!'
     );
+
+SELECT
+    comments.*,
+    posts.title,
+    posts.post_id
+FROM comments
+    INNER JOIN posts ON comments.post_id = posts.post_id
+WHERE comments.owner_id = 1;
