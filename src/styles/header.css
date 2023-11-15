@@ -124,11 +124,11 @@ header nav a:first-child {
   color: var(--font-3);
 }
 
-.dropdown-menu>li:first-child {
+.dropdown-menu li:first-child {
   padding: 0 0 8px 16px;
 }
 
-.dropdown-menu>li>button:active {
+.dropdown-menu li button:active {
   color: var(--font-3);
   background-color: var(--white)
 }
@@ -137,12 +137,12 @@ header nav a:first-child {
   margin: 12px 8px;
 }
 
-.dropdown-menu>li>button {
+.dropdown-menu li button {
   display: flex;
   justify-content: space-between;
 }
 
-#user_menu>li>button {
+#user_menu li button {
   color: var(--font-3);
 }
 
@@ -152,12 +152,12 @@ header nav a:first-child {
   padding: 8px;
 }
 
-#user_menu>li>button:hover {
+#user_menu li button:hover {
   background-color: var(--user-menu-hover-color);
 }
 
 
-#user_menu>li:last-child>button {
+#user_menu li:last-child button {
   opacity: 1;
   color: var(--alert-1);
 }

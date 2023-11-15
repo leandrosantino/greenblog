@@ -51,7 +51,8 @@ $comments = get_comments_by_post_id($post_id);
         <input type="text" hidden name="id" value="<?= $post_id ?>">
         <input type="text" hidden name="user_id" id="user_id">
 
-        <textarea name="comment" id="comment_field" cols="30" rows="10" disabled required placeholder=Comentário></textarea>
+        <textarea name="comment" id="comment_field" cols="30" rows="10" disabled required
+          placeholder=Comentário></textarea>
         <div>
           <span>Para adicionar um comentário, primeiro faça login!</span>
           <button id="send_comment_bt" disabled>
@@ -74,28 +75,10 @@ $comments = get_comments_by_post_id($post_id);
           $username = &$comment['username'];
           $date = &$comment['created_at'];
 
-          $timezone = new DateTimeZone('America/Sao_Paulo');
-          $now = new DateTime('now', $timezone);
+          $date = &$comment['created_at'];
           $date = new DateTime($date);
 
-          $diff = $now->diff($date);
-
-          $e = 'há ' . $diff->d . ' dias';
-          if ($diff->d > 7) {
-            $e = $date->format('d/m/Y');
-          }
-          if ($diff->d == 7) {
-            $e = 'há 1 sem';
-          }
-          if ($diff->d <= 1) {
-            $e = 'há ' . $diff->h . ' h';
-          }
-          if ($diff->h <= 1) {
-            $e = 'há ' . $diff->i . ' min';
-          }
-          if ($diff->i <= 1) {
-            $e = 'agora';
-          }
+          $created_at = calculate_time_diff($date);
 
           echo <<<HTML
 
@@ -103,7 +86,7 @@ $comments = get_comments_by_post_id($post_id);
                 <div id="comment_title" >
                   <span>$username</span>  
                   <span class="bi bi-calendar-event"></span>  
-                  <span> $e</span>    
+                  <span> $created_at</span>    
                 </div>
                 <p>$content</p>
               </div>
@@ -121,6 +104,7 @@ $comments = get_comments_by_post_id($post_id);
 
 
 <script src="/scripts/post.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </html>

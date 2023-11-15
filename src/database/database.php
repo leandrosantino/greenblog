@@ -150,6 +150,29 @@ function get_post_by_id(String $id)
 	return $query;
 }
 
+function get_comments_by_user_id(String $id)
+{
+	global $db;
+	$sql = "--sql
+		SELECT comments.*, posts.title, posts.post_id 
+		FROM comments 
+		INNER JOIN posts 
+		ON comments.post_id = posts.post_id 
+		WHERE comments.owner_id = '$id'
+		ORDER BY comments.created_at DESC
+	";
+
+	$query = $db->prepare($sql);
+	$query->execute();
+	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+
+	if (!$query) {
+		return false;
+	}
+
+	return $query;
+}
+
 function create_post($data)
 {
 	global $db;
@@ -170,4 +193,34 @@ function create_post($data)
 	$query = $query->execute();
 
 	return $query;
+}
+
+
+function calculate_time_diff(DateTime $date)
+{
+	$timezone = new DateTimeZone('America/Sao_Paulo');
+	$now = new DateTime('now', $timezone);
+
+	$diff = $now->diff($date);
+
+
+	$text_diff = 'há ' . $diff->d . ' dias';
+
+	if ($diff->d > 7) {
+		$text_diff = $date->format('d/m/Y');
+	}
+	if ($diff->d == 7) {
+		$text_diff = 'há 1 sem';
+	}
+	if ($diff->d <= 1) {
+		$text_diff = 'há ' . $diff->h . ' h';
+	}
+	if ($diff->h <= 1) {
+		$text_diff = 'há ' . $diff->i . ' min';
+	}
+	if ($diff->i <= 1) {
+		$text_diff = 'agora';
+	}
+
+	return $text_diff;
 }

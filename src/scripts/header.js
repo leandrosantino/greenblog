@@ -22,10 +22,14 @@ if (session.username) {
           <span id="username"></span>
         </li>
         <li>
-          <button class="dropdown-item">
-            Meus Comentários
-            <span class="bi bi-chat-left-dots"></span>
-          </button>
+          <form method="post" action="/comments.php" >
+            <input hidden name="user_id" value="${session.userid}"/>
+            <button class="dropdown-item">
+              Meus Comentários
+              <span class="bi bi-chat-left-dots"></span>
+            </button>
+          </form>
+          
         </li>
         <li>
           <hr/>
