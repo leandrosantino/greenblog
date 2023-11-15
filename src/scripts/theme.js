@@ -22,7 +22,7 @@ function set_teme_colors() {
     const r = document.querySelector(':root')
     r.style.setProperty("--font-1", "#8a8a8a");
     r.style.setProperty("--font-2", "rgb(160, 160, 160)");
-    r.style.setProperty("--font-3", "#FFFFFF");
+    r.style.setProperty("--font-3", "#e0e0e0");
     r.style.setProperty("--back-color", "#2D2D2D");
     r.style.setProperty("--back-color-input", "#5a5a5a");
     r.style.setProperty("--user-menu-hover-color", "rgba(255, 255, 255, .1)");
@@ -33,7 +33,7 @@ function set_teme_colors() {
     const r = document.querySelector(':root')
     r.style.setProperty("--font-1", "#969696");
     r.style.setProperty("--font-2", "#343434");
-    r.style.setProperty("--font-3", "#2D2D2D");
+    r.style.setProperty("--font-3", "#3b3b3b");
     r.style.setProperty("--back-color", "#FFFFFF");
     r.style.setProperty("--back-color-input", "#FFFFFF");
     r.style.setProperty("--logo-url", "url(/assets/logo-green.png)");

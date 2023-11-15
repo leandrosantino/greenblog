@@ -44,7 +44,9 @@ $comments = get_comments_by_post_id($post_id);
 
       <h1 class="h1"><?= $post['title'] ?></h1>
       <p class="h4" id="subtitle"><?= $post['subtitle'] ?></p>
-      <p id="content_body"><?= $post['content'] ?></p>
+      <div id="content_body">
+        <?= $post['content'] ?>
+      </div>
 
       <form action="/actions/comment.php" method="post" id="form">
 

@@ -37,7 +37,7 @@ $posts = get_all_posts();
             <div id="post" >
               <h1 class="h3">$title</h1>
               <p class="h6">$subtitle</p>
-              <p  >$content</p>
+              <!-- <p  >$content</p> -->
               <div>
                 <a id="view_more" href="/post.php?id=$post_id">
                     ver mais...

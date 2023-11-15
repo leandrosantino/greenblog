@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   padding: 16px 0;
   font-size: 18px;
 }
@@ -47,8 +47,41 @@ textarea {
   text-align: justify;
   line-height: 24px;
   font-size: 16px;
-  font-weight: 500;
 }
+
+#content_body h1,
+#content_body h2,
+#content_body h3,
+#content_body h4,
+#content_body h5,
+#content_body h6 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: start;
+}
+
+#content_body h1,
+#content_body h2 {
+  font-size: 20px;
+}
+
+#content_body h3 {
+  font-size: 18px;
+}
+
+#content_body h4 {
+  font-size: 18px;
+}
+
+#content_body h5 {
+  font-size: 16px;
+}
+
+#content_body h6 {
+  font-size: 16px;
+}
+
+
 
 #comments {
   max-width: 800px;

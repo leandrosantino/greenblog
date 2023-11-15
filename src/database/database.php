@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('America/Sao_Paulo');
+
 const DATABASE_PATH = __DIR__ . "/app.db";
 
 $db = new PDO("sqlite:" . DATABASE_PATH);
@@ -79,11 +81,15 @@ function create_comment($data)
 {
 	global $db;
 
+	$created_at = new DateTime();
+	$created_at = $created_at->format('Y-m-d H:i:s');
+
 	$sql = "--sql
-		INSERT INTO comments (post_id, owner_id, content) VALUES (
+		INSERT INTO comments (post_id, owner_id, content, created_at) VALUES (
 			$data->post_id,
 			$data->user_id,
-			'$data->content'
+			'$data->content',
+			'$created_at'
 		)
 	";
 
@@ -198,10 +204,9 @@ function create_post($data)
 
 function calculate_time_diff(String $date_str)
 {
-	$timezone = new DateTimeZone('America/Sao_Paulo');
-	$now = new DateTime('now', $timezone);
-	$date = new DateTime($date_str, $timezone);
 
+	$now = new DateTime('now');
+	$date = new DateTime($date_str);
 	$diff = $now->diff($date);
 
 	$days = $diff->days;
