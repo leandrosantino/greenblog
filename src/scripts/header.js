@@ -40,7 +40,9 @@ if (session.username) {
     </div>
   `)
 
-  if (session.isAdmin) {
+  console.log()
+
+  if (session.isAdmin && window.location.pathname.match('create_post') === null) {
     $('#new_post_case').html(`
       <a href="/create_post.php">
         <button id="new_post">

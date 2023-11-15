@@ -156,11 +156,13 @@ function create_post($data)
 
 	$sql = "--sql
 		INSERT INTO posts (
-		owner_id, title, content
+		owner_id, title, content, subtitle
 	) VALUES (
-		'$data->email',
-		'$data->password',
-		'$data->username'
+		'$data->user_id',
+		'$data->title',
+		'$data->content',
+		'$data->subtitle'
+		
 	)
 	";
 
