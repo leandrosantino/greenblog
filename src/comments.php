@@ -47,8 +47,6 @@ $comments = get_comments_by_user_id($user_id);
           $post_id = &$comment['post_id'];
 
           $date = &$comment['created_at'];
-          $date = new DateTime($date);
-
           $created_at = calculate_time_diff($date);
 
           echo <<<HTML

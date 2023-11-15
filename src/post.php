@@ -51,8 +51,7 @@ $comments = get_comments_by_post_id($post_id);
         <input type="text" hidden name="id" value="<?= $post_id ?>">
         <input type="text" hidden name="user_id" id="user_id">
 
-        <textarea name="comment" id="comment_field" cols="30" rows="10" disabled required
-          placeholder=Comentário></textarea>
+        <textarea name="comment" id="comment_field" cols="30" rows="10" disabled required placeholder=Comentário></textarea>
         <div>
           <span>Para adicionar um comentário, primeiro faça login!</span>
           <button id="send_comment_bt" disabled>
@@ -76,7 +75,6 @@ $comments = get_comments_by_post_id($post_id);
           $date = &$comment['created_at'];
 
           $date = &$comment['created_at'];
-          $date = new DateTime($date);
 
           $created_at = calculate_time_diff($date);
 
@@ -104,7 +102,6 @@ $comments = get_comments_by_post_id($post_id);
 
 
 <script src="/scripts/post.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </html>

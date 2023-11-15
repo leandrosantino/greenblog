@@ -196,31 +196,41 @@ function create_post($data)
 }
 
 
-function calculate_time_diff(DateTime $date)
+function calculate_time_diff(String $date_str)
 {
 	$timezone = new DateTimeZone('America/Sao_Paulo');
 	$now = new DateTime('now', $timezone);
+	$date = new DateTime($date_str, $timezone);
 
 	$diff = $now->diff($date);
 
+	$days = $diff->days;
+	$hours = $diff->h;
+	$minutes = $diff->i;
 
-	$text_diff = 'há ' . $diff->d . ' dias';
-
-	if ($diff->d > 7) {
-		$text_diff = $date->format('d/m/Y');
-	}
-	if ($diff->d == 7) {
-		$text_diff = 'há 1 sem';
-	}
-	if ($diff->d <= 1) {
-		$text_diff = 'há ' . $diff->h . ' h';
-	}
-	if ($diff->h <= 1) {
-		$text_diff = 'há ' . $diff->i . ' min';
-	}
-	if ($diff->i <= 1) {
-		$text_diff = 'agora';
+	if ($days > 7) {
+		return $date->format('d/m/Y');
 	}
 
-	return $text_diff;
+	if ($days == 7) {
+		return 'há 1 sem';
+	}
+
+	if ($days >= 1) {
+		return 'há ' . $days . ' d';
+	}
+
+	if ($days == 0 && $hours > 1 && $minutes >= 0) {
+		return 'há ' . $hours . ' h';
+	}
+
+	if ($days == 0 && $hours <= 1 && $minutes >= 1) {
+		return 'há ' . $minutes . ' min';
+	}
+
+	if ($days == 0 && $hours == 0 && $minutes == 0) {
+		return 'agora';
+	}
+
+	return '';
 }
