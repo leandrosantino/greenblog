@@ -49,6 +49,14 @@ textarea {
   font-size: 16px;
 }
 
+#content_body img {
+  width: 100%;
+  padding: 0 15%;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+
 #content_body h1,
 #content_body h2,
 #content_body h3,
@@ -134,6 +142,10 @@ textarea {
 }
 
 @media (max-width:600px) {
+  #content_body img {
+    padding: 0;
+  }
+
   h1 {
     font-size: 30px;
   }
@@ -154,4 +166,12 @@ textarea {
   #content_body {
     font-size: 18px;
   }
+}
+
+#post_date {
+  font-size: 14px;
+  color: var(--font-1);
+  font-weight: 500;
+  width: 100%;
+  text-align: end;
 }

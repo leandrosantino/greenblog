@@ -18,6 +18,11 @@ if (!$post) {
 
 $comments = get_comments_by_post_id($post_id);
 
+$date = $post['created_at'];
+$created_at = new DateTime($date);
+$created_at = $created_at->format('d/m/Y');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +49,7 @@ $comments = get_comments_by_post_id($post_id);
 
       <h1 class="h1"><?= $post['title'] ?></h1>
       <p class="h4" id="subtitle"><?= $post['subtitle'] ?></p>
+      <span id="post_date">Criado em: <?= $created_at ?></span>
       <div id="content_body">
         <?= $post['content'] ?>
       </div>
