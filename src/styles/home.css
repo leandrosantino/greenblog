@@ -31,10 +31,15 @@
   font-size: 12px;
 }
 
-#view_more {}
-
 #post>div {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+}
+
+
+#post_date {
+  font-size: 12px;
+  color: var(--font-1);
+  font-weight: 500;
 }

@@ -128,7 +128,7 @@ function get_all_posts()
 	global $db;
 
 	$sql = "--sql
-		SELECT * FROM posts
+		SELECT * FROM posts ORDER BY created_at DESC
 	";
 
 	$query = $db->prepare($sql);
@@ -183,15 +183,18 @@ function create_post($data)
 {
 	global $db;
 
+	$created_at = new DateTime();
+	$created_at = $created_at->format('Y-m-d H:i:s');
+
 	$sql = "--sql
 		INSERT INTO posts (
-		owner_id, title, content, subtitle
+		owner_id, title, content, subtitle, created_at
 	) VALUES (
 		'$data->user_id',
 		'$data->title',
 		'$data->content',
-		'$data->subtitle'
-		
+		'$data->subtitle',
+		'$created_at'
 	)
 	";
 

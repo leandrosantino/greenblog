@@ -32,6 +32,10 @@ $posts = get_all_posts();
         $post_id = &$post['post_id'];
         $subtitle = &$post['subtitle'];
 
+        $date = &$post['created_at'];
+        $created_at = new DateTime($date);
+        $created_at = $created_at->format('d/m/Y');
+
         echo <<<HTML
 
             <div id="post" >
@@ -39,6 +43,7 @@ $posts = get_all_posts();
               <p class="h6">$subtitle</p>
               <!-- <p  >$content</p> -->
               <div>
+                <span id="post_date" >$created_at</span>
                 <a id="view_more" href="/post.php?id=$post_id">
                     ver mais...
                 </a>
