@@ -1,12 +1,13 @@
-body{
+main {
     display: flex;
     width: 100%;
     height: 100vh;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
-body>section:first-child{
+main>section:first-child {
     display: flex;
     width: 355px;
     padding: 28px 28px 0px 28px;
@@ -18,68 +19,105 @@ body>section:first-child{
     background-color: var(--primary-2);
 }
 
-body>section:first-child span{
+main>section:first-child span {
     font-size: 50px;
     font-weight: bold;
     color: var(--white);
 }
 
-body>section:last-child{
+main>section:last-child {
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-bottom: 120px;
+    padding-bottom: 56px;
 }
 
-#logo_green{
+#logo_green {
     position: absolute;
     top: 0;
     right: 0;
     margin-top: 8px;
     margin-right: 8px;
     width: 150px;
+    height: calc(var(--header-height) - 8px);
+    background-image: var(--logo-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-#login_form{
+#login_form {
     width: 400px;
     height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 12px;
-    gap: 24px;
+    gap: 16px;
 }
 
-#login_form>div{
+#login_form>div span {
+    font-size: 14px;
+    text-indent: 6px;
+    color: var(--alert-1);
+}
+
+#login_form>a {
+    text-decoration: underline;
+    color: var(--font-3);
+}
+
+#login_form>a:hover {
+    color: var(--font-3);
+    opacity: .8;
+}
+
+#login_form>span {
+    font-size: 14px;
+    color: var(--font-1);
+}
+
+#login_form>div {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
-#login_form>label{
+
+#login_form>label {
     font-size: 32px;
 }
-#login_form>button{
+
+#login_form>button>span {
+    font-size: 18px;
+}
+
+#login_form>button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--primary-2);
     color: var(--white);
-    margin: 16px 0;
     font-size: 16px;
+    padding: 4px 0;
     width: 100%;
 }
-#login_form>h1{
+
+#login_form>h1 {
     font-size: 32px;
     width: 100%;
     text-align: start;
 }
 
 @media (max-width: 800px) {
-    body>section:first-child{
+    main>section:first-child {
         display: none;
     }
-    #logo_green{
+
+    #logo_green {
         right: inherit;
         margin-right: inherit;
         left: 0;
