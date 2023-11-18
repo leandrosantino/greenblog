@@ -1,3 +1,6 @@
+<!-- signin -->
+
+
 <?php
 $email_erro = '';
 $pass_erro = '';
@@ -23,14 +26,6 @@ if (isset($_GET['pass-erro'])) {
 <body>
   <main>
     <section>
-      <span>
-        Um lugar mais verde na Internet
-      </span>
-      <div>
-        <img src="/assets/tree.png" alt="tree">
-      </div>
-    </section>
-    <section>
       <a href="/" id="logo_green"></a>
       <form id="login_form" action="/actions/auth.php" method="post">
         <h1>Login</h1>
@@ -53,6 +48,14 @@ if (isset($_GET['pass-erro'])) {
         <span>&copy;tech_soluctions</span>
       </form>
 
+    </section>
+    <section>
+      <span>
+        Um lugar mais verde na Internet
+      </span>
+      <div>
+        <img src="/assets/tree.png" alt="tree">
+      </div>
     </section>
   </main>
   <script src="/scripts/theme.js"></script>

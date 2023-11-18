@@ -1,3 +1,5 @@
+<!-- signup.php -->
+
 <?php
 $email_erro = '';
 $user_erro = '';
@@ -22,14 +24,6 @@ if (isset($_GET['user-erro'])) {
 
 <body>
   <main>
-    <section>
-      <span>
-        Um lugar mais verde na Internet
-      </span>
-      <div>
-        <img src="../../assets/tree.png" alt="tree">
-      </div>
-    </section>
     <section>
       <a href="/" id="logo_green"></a>
       <form id="login_form" method="post" action="/actions/create_user.php">
@@ -58,6 +52,14 @@ if (isset($_GET['user-erro'])) {
         <span>&copy;techSoluctions</span>
       </form>
 
+    </section>
+    <section>
+      <span>
+        Um lugar mais verde na Internet
+      </span>
+      <div>
+        <img src="../../assets/tree.png" alt="tree">
+      </div>
     </section>
   </main>
   <script src="/scripts/theme.js"></script>

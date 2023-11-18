@@ -1,3 +1,5 @@
+<!-- create_post -->
+
 <?php
 $header = include './header.php';
 

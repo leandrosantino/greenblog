@@ -1,3 +1,6 @@
+<!-- index-->
+
+
 <?php
 include './database/database.php';
 $header = include './header.php';
