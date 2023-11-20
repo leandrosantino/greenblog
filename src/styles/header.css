@@ -49,13 +49,10 @@ header nav {
   width: 100%;
   display: flex;
   gap: 12px;
-  justify-content: center;
-
+  justify-content: flex-start;
+  padding-left: 5px;
 }
 
-header nav a:first-child {
-  color: var(--white);
-}
 
 #login_link>span:last-child {
   color: var(--white);

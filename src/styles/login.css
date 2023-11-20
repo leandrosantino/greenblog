@@ -119,12 +119,10 @@ main>section:last-child span {
 
 #CaseButton{
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translate(0,-50%);
-    cursor: pointer; 
+    right: 9px;
+    transform: translate(0, -50%);
+    top: 68%;
+    cursor: pointer;
 }
 
 #font {
@@ -138,7 +136,7 @@ main>section:last-child span {
 
 
 @media (max-width: 800px) {
-    main>section:first-child {
+    main>section:last-child {
         display: none;
     }
 
