@@ -77,7 +77,6 @@ $created_at = $created_at->format('d/m/Y');
     <div id="comments">
 
       <h5 class="h5">Comentários:</h5>
-      <!-- <div></div> -->
       <?php
       if ($comments) {
         foreach ($comments as &$comment) {

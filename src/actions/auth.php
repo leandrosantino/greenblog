@@ -18,7 +18,7 @@ if (!$user) {
   header("Location: $host/signin.php?email-erro=$msg");
   exit();
 } elseif ($user['password'] != $password) {
-  $msg = urlencode("senha inválida!");
+  $msg = urlencode("Senha inválida!");
   header("Location: $host/signin.php?pass-erro=$msg");
   exit();
 } else {

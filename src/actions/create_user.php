@@ -16,7 +16,7 @@ $username = $_POST['username'];
 $user = get_user_by_username($username);
 
 if ($user) {
-  $msg = urlencode("esse nome de usuário já está sendo utilizado!");
+  $msg = urlencode("Esse nome de usuário já existe!");
   header("Location: $host/signup.php?user-erro=$msg");
   exit();
 }
@@ -24,7 +24,7 @@ if ($user) {
 $user = get_user_by_email($email);
 
 if ($user) {
-  $msg = urlencode("este email já foi registrado!");
+  $msg = urlencode("Este email já foi registrado!");
   header("Location: $host/signup.php?email-erro=$msg");
   exit();
 }
@@ -36,7 +36,7 @@ $resp = create_user((object) [
 ]);
 
 if (!$resp) {
-  $msg = "Falha ao cadastar usuário";
+  $msg = "Falha ao cadastrar usuário";
   header("Location: $host/signup.php?erro=$msg");
   exit();
 }
