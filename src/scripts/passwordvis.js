@@ -1,6 +1,7 @@
-function togglePW() {
-    console.log("Function is being called!")
+//Function to toggle password visibility
 
+function togglePW() {
+    
     var password = document.querySelector('[name=password]');
     var eyeIcon = document.getElementById('font');
 

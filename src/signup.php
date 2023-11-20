@@ -19,6 +19,8 @@ if (isset($_GET['user-erro'])) {
   <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
   <link rel="stylesheet" href="../../styles/global.css">
   <link rel="stylesheet" href="../../styles/login.css">
+  <script src="scripts/passwordvis.js"></script>
+  <script src="https://kit.fontawesome.com/3086f3a53a.js" crossorigin="anonymous"></script>
   <title>GreenBlog - Cadastro</title>
 </head>
 
@@ -41,7 +43,9 @@ if (isset($_GET['user-erro'])) {
         <div>
           <label for="">Senha:</label>
           <input type="password" id="password" name="password" required>
-          <span></span>
+          <span>
+          <i class="fas fa-eye" id="PasswordButton" onclick="togglePW()" aria-hidden="true"></i>
+          </span>
         </div>
         <a href="/signin.php">Já tem uma conta? Faça Login</a>
 

@@ -1,4 +1,3 @@
-
 if(session.username){
   $("#comment_field").prop('disabled', false)
   $("#send_comment_bt").prop('disabled', false)

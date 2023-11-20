@@ -31,8 +31,6 @@ main>section:last-child {
     background-color: var(--primary-2);
 }
 
-
-
 main>section:last-child span {
     font-size: 50px;
     font-weight: bold;
@@ -85,6 +83,7 @@ main>section:last-child span {
 }
 
 #login_form>div {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -115,6 +114,28 @@ main>section:last-child span {
     width: 100%;
     text-align: start;
 }
+
+/*Estilização botão de visibilidade*/
+
+#CaseButton{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translate(0,-50%);
+    cursor: pointer; 
+}
+
+#font {
+    font-size: 20px;
+    color: white;
+}
+
+.visible-password {
+    color: black !important; /* Use !important to ensure this style takes precedence */
+}
+
 
 @media (max-width: 800px) {
     main>section:first-child {
