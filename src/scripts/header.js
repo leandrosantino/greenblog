@@ -1,14 +1,15 @@
+let session = {}
+try {
 
+  function logout() {
+    window.sessionStorage.setItem("green_blog_session", "")
+    window.location.replace(`http://${window.location.host}/`)
+  }
 
-function logout() {
-  window.sessionStorage.setItem("green_blog_session", "")
-  window.location.replace(`http://${window.location.host}/`)
-}
+  session = JSON.parse(window.sessionStorage.getItem("green_blog_session"))
 
-const session = JSON.parse(window.sessionStorage.getItem("green_blog_session"))
-
-if (session.username) {
-  $("#user_case").html(`
+  if (session.username) {
+    $("#user_case").html(`
     <div id="new_post_case" ></div>
     <div id="user_info" class="dropdown">
       <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,10 +45,10 @@ if (session.username) {
     </div>
   `)
 
-  console.log()
+    console.log()
 
-  if (session.isAdmin && window.location.pathname.match('create_post') === null) {
-    $('#new_post_case').html(`
+    if (session.isAdmin && window.location.pathname.match('create_post') === null) {
+      $('#new_post_case').html(`
       <a href="/create_post.php">
         <button id="new_post">
           <span>Criar</span>
@@ -55,12 +56,14 @@ if (session.username) {
         </button>
       </a>
     `)
+    }
+
+    $('#username').html(session.username)
+
+
+
   }
-
-  $('#username').html(session.username)
-
-
+} catch {
 
 }
-
 

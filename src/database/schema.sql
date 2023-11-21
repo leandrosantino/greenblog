@@ -1,4 +1,4 @@
--- Active: 1700521402060@@127.0.0.1@3306
+-- Active: 1698888367937@@127.0.0.1@3306
 
 drop Table comments;
 
@@ -29,10 +29,13 @@ create table
         content text,
         created_at timestamp DEFAULT CURRENT_TIMESTAMP
     );
-create table if not exists favorite (
-    user_id REFERENCES user(user_id),
-    post_id REFERENCES user(post_id) 
-);
+
+create table
+    if not exists favorite (
+        user_id REFERENCES user(user_id),
+        post_id REFERENCES user(post_id)
+    );
+
 INSERT INTO
     user(
         email,
@@ -96,3 +99,7 @@ SELECT
 FROM comments
     INNER JOIN posts ON comments.post_id = posts.post_id
 WHERE comments.owner_id = 1;
+
+SELECT * FROM favorite WHERE user_id = '1' AND post_id='12'
+
+DELETE FROM favorite WHERE user_id = 1 AND post_id= 12 

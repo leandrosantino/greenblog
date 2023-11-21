@@ -22,9 +22,9 @@ if (!$post) {
 $comments = get_comments_by_post_id($post_id);
 
 $date = $post['created_at'];
-$created_at = new DateTime($date);
-$created_at = $created_at->format('d/m/Y');
+$created_at = calculate_time_diff($date);
 
+$icon_bookmark = 'bi-bookmark-plus';
 
 ?>
 
@@ -46,13 +46,25 @@ $created_at = $created_at->format('d/m/Y');
 <body>
   <?= $header ?>
 
+  <input type="text" hidden id="post_id" value="<?= $post_id ?>">
+
   <main id="container">
 
     <div id="content">
 
       <h1 class="h1"><?= $post['title'] ?></h1>
       <p class="h4" id="subtitle"><?= $post['subtitle'] ?></p>
-      <span id="post_date">Criado em: <?= $created_at ?></span>
+      <div id="post_date">
+        <span id="created_at">
+          <?= $created_at ?>
+        </span>
+
+        <button type="submit" id="set_favorite_bt">
+          <span></span>
+          <span id="icon_favorite" class="bi bi-bookmark-plus"></span>
+        </button>
+
+      </div>
       <div id="content_body">
         <?= $post['content'] ?>
       </div>

@@ -171,10 +171,28 @@ textarea {
 }
 
 #post_date {
+  display: flex;
   font-size: 14px;
-  color: var(--font-1);
   font-weight: 500;
-  width: 100%;
   text-align: start;
   justify-content: space-between;
+}
+
+#created_at {
+  color: var(--font-1);
+}
+
+#post_date form {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+#set_favorite_bt {
+  background-color: transparent;
+}
+
+#icon_favorite {
+  font-size: 20px;
+  font-weight: 900 !important;
 }

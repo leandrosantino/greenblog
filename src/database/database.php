@@ -221,24 +221,67 @@ function calculate_time_diff(String $date_str)
 	}
 
 	if ($days == 7) {
-		return 'há 1 sem';
+		return 'Há 1 sem';
 	}
 
 	if ($days >= 1) {
-		return 'há ' . $days . ' d';
+		return 'Há ' . $days . ' d';
 	}
 
 	if ($days == 0 && $hours > 1 && $minutes >= 0) {
-		return 'há ' . $hours . ' h';
+		return 'Há ' . $hours . ' h';
 	}
 
 	if ($days == 0 && $hours <= 1 && $minutes >= 1) {
-		return 'há ' . $minutes . ' min';
+		return 'Há ' . $minutes . ' min';
 	}
 
 	if ($days == 0 && $hours == 0 && $minutes == 0) {
-		return 'agora';
+		return 'Agora';
 	}
 
 	return '';
+}
+
+function get_favorite(String $post_id, String $user_id)
+{
+	global $db;
+
+	$sql = "--sql
+		SELECT * FROM favorite WHERE user_id = '$user_id' AND post_id= '$post_id'
+	";
+
+	$query = $db->prepare($sql);
+	$query->execute();
+	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+
+	return $query;
+}
+
+function create_favorite(String $post_id, String $user_id)
+{
+	global $db;
+
+	$sql = "--sql
+		INSERT INTO favorite VALUES ('$user_id','$post_id')
+	";
+
+	$query = $db->prepare($sql);
+	$query = $query->execute();
+
+	return $query;
+}
+
+function delete_favorite(String $post_id, String $user_id)
+{
+	global $db;
+
+	$sql = "--sql
+		DELETE FROM favorite WHERE user_id = '$user_id' AND post_id= '$post_id'
+	";
+
+	$query = $db->prepare($sql);
+	$query = $query->execute();
+
+	return $query;
 }
