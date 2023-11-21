@@ -14,7 +14,7 @@ $password = $_POST['password'];
 $user = get_user_by_email($email);
 
 if (!$user) {
-  $msg = urlencode("usuário não encontrado!");
+  $msg = urlencode("Usuário não encontrado!");
   header("Location: $host/signin.php?email-erro=$msg");
   exit();
 } elseif ($user['password'] != $password) {

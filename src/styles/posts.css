@@ -175,5 +175,6 @@ textarea {
   color: var(--font-1);
   font-weight: 500;
   width: 100%;
-  text-align: end;
+  text-align: start;
+  justify-content: space-between;
 }

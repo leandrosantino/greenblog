@@ -1,4 +1,6 @@
--- Active: 1698888367937@@127.0.0.1@3306
+-- Active: 1700521402060@@127.0.0.1@3306
+
+drop Table comments;
 
 create table
     if not exists user (
@@ -6,7 +8,6 @@ create table
         username varchar(16),
         email varchar(40),
         password varchar(40),
-        favorite_posts integer foreign key references posts(favorite),
         isAdmin BOOLEAN NOT NULL
     );
 
@@ -14,11 +15,10 @@ create table
     if not exists posts (
         post_id integer primary key autoincrement,
         owner_id int not null references user(user_id),
-        favorite INT,
         title varchar(80),
-        subtitle text(100)
+        subtitle text(100),
         content text,
-        created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+        created_at timestamp DEFAULT CURRENT_TIMESTAMP
     );
 
 create table
@@ -29,7 +29,10 @@ create table
         content text,
         created_at timestamp DEFAULT CURRENT_TIMESTAMP
     );
-
+create table if not exists favorite (
+    user_id REFERENCES user(user_id),
+    post_id REFERENCES user(post_id) 
+);
 INSERT INTO
     user(
         email,
