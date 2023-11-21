@@ -14,20 +14,24 @@ if (isset($_GET['user-erro'])) {
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
-  <link rel="stylesheet" href="../../styles/global.css">
-  <link rel="stylesheet" href="../../styles/login.css">
-  <script src="scripts/passwordvis.js"></script>
-  <script src="https://kit.fontawesome.com/3086f3a53a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/login.css">
+  <link rel="stylesheet" href="/styles/signin_header.css">
   <title>GreenBlog - Cadastro</title>
 </head>
 
 <body>
   <main>
     <section>
-      <a href="/" id="logo_green"></a>
+      <header id="main">
+        <a href="/" id="logo_green"></a>
+        <button id="theme_button">
+        <span class="bi bi-sun"></span>
+        </button>
+      </header>
       <form id="login_form" method="post" action="/actions/create_user.php">
         <h1>Cadastre-se</h1>
         <div>
@@ -43,9 +47,9 @@ if (isset($_GET['user-erro'])) {
         <div>
           <label for="">Senha:</label>
           <input type="password" id="password" name="password" required>
-          <span>
-          <i class="fas fa-eye" id="PasswordButton" onclick="togglePW()" aria-hidden="true"></i>
-          </span>
+          <div id="CaseButton">
+            <i class="fas fa-eye" id="PasswordButton" onclick="togglePW()" aria-hidden="true"></i>
+          </div>
         </div>
         <a href="/signin.php">Já tem uma conta? Faça Login</a>
 
@@ -66,7 +70,10 @@ if (isset($_GET['user-erro'])) {
       </div>
     </section>
   </main>
+  <script src="/scripts/jquery.js"></script>
   <script src="/scripts/theme.js"></script>
+  <script src="scripts/passwordvis.js"></script>
+  <script src="https://kit.fontawesome.com/3086f3a53a.js" crossorigin="anonymous"></script>
 </body>
 
 

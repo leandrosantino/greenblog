@@ -20,15 +20,19 @@ if (isset($_GET['pass-erro'])) {
   <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
   <link rel="stylesheet" href="/styles/global.css">
   <link rel="stylesheet" href="/styles/login.css">
-  <script src="scripts/passwordvis.js"></script>
-  <script src="https://kit.fontawesome.com/3086f3a53a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/styles/signin_header.css">
   <title>GreenBlog - Login</title>
 </head>
 
 <body>
   <main>
     <section>
-      <a href="/" id="logo_green"></a>
+      <header id="main">
+        <a href="/" id="logo_green"></a>
+        <button id="theme_button">
+          <span class="bi bi-sun"></span>  
+      </button>
+      </header>
       <form id="login_form" action="/actions/auth.php" method="post">
         <h1>Login</h1>
         <div>
@@ -65,7 +69,10 @@ if (isset($_GET['pass-erro'])) {
       </div>
     </section>
   </main>
+  <script src="/scripts/jquery.js"></script>
   <script src="/scripts/theme.js"></script>
+  <script src="scripts/passwordvis.js"></script>
+  <script src="https://kit.fontawesome.com/3086f3a53a.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
