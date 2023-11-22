@@ -10,9 +10,10 @@ return <<<HTML
       </a>  
     </div>
     <nav>
-        <a href="Recentes">Recentes</a>
-        <a href="Relevantes">Relevantes</a>
-      </nav>  
+      <!-- <a href="#">Sobre</a>
+      <a href="/">Recentes</a>
+      <a href="#">Relevantes</a> -->
+    </nav>  
     <div>   
       <button id="theme_button" class="dropdown-item" ></button> 
       <div id="user_case">
@@ -30,5 +31,3 @@ return <<<HTML
  
 HTML;
 ?>
-
- 

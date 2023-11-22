@@ -4,7 +4,16 @@
 <?php
 include './database/database.php';
 $header = include './header.php';
-$posts = get_all_posts();
+
+
+$posts = [];
+if (isset($_GET['user_id'])) {
+  $user_id = $_GET['user_id'];
+  $posts = get_favorite_posts($user_id);
+} else {
+  $posts = get_all_posts();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +36,15 @@ $posts = get_all_posts();
   <main id="container">
 
     <div id="content">
+
+      <?php
+
+      if (isset($_GET['user_id'])) {
+        echo "<h4>Posts salvos: </h4>";
+      }
+
+      ?>
+
       <?php foreach ($posts as &$post) {
 
         $title = &$post['title'];
@@ -35,9 +53,8 @@ $posts = get_all_posts();
         $post_id = &$post['post_id'];
         $subtitle = &$post['subtitle'];
 
-        $date = &$post['created_at'];
-        $created_at = new DateTime($date);
-        $created_at = $created_at->format('d/m/Y');
+        $date = $post['created_at'];
+        $created_at = calculate_time_diff($date);
 
         echo <<<HTML
 

@@ -285,3 +285,23 @@ function delete_favorite(String $post_id, String $user_id)
 
 	return $query;
 }
+
+function get_favorite_posts($user_id)
+{
+	global $db;
+
+	$sql = "--sql
+		SELECT posts.* 
+		FROM favorite 
+		INNER JOIN posts 
+		ON favorite.post_id = posts.post_id
+		WHERE favorite.user_id = '$user_id'
+		ORDER BY created_at DESC
+	";
+
+	$query = $db->prepare($sql);
+	$query->execute();
+	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+
+	return $query;
+}

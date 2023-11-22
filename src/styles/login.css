@@ -48,6 +48,13 @@ main>section:last-child span {
     gap: 16px;
 }
 
+#passInputCase {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 #login_form>div span {
     font-size: 14px;
     text-indent: 6px;
@@ -70,7 +77,7 @@ main>section:last-child span {
 }
 
 #login_form>div {
-    position: relative;
+    /* position: relative; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -104,11 +111,11 @@ main>section:last-child span {
 
 /*Estilização botão de visibilidade*/
 
-#CaseButton{
+#CaseButton {
     position: absolute;
     right: 9px;
     transform: translate(0, -50%);
-    top: 68%;
+    top: 50%;
     cursor: pointer;
 }
 
@@ -118,7 +125,8 @@ main>section:last-child span {
 }
 
 .visible-password {
-    color: black !important; /* Use !important to ensure this style takes precedence */
+    color: black !important;
+    /* Use !important to ensure this style takes precedence */
 }
 
 

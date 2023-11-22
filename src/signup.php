@@ -14,7 +14,7 @@ if (isset($_GET['user-erro'])) {
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
   <link rel="stylesheet" href="/styles/global.css">
@@ -29,7 +29,7 @@ if (isset($_GET['user-erro'])) {
       <header id="main">
         <a href="/" id="logo_green"></a>
         <button id="theme_button">
-        <span class="bi bi-sun"></span>
+          <span class="bi bi-sun"></span>
         </button>
       </header>
       <form id="login_form" method="post" action="/actions/create_user.php">
@@ -46,11 +46,14 @@ if (isset($_GET['user-erro'])) {
         </div>
         <div>
           <label for="">Senha:</label>
-          <input type="password" id="password" name="password" required>
-          <div id="CaseButton">
-            <i class="fas fa-eye" id="PasswordButton" onclick="togglePW()" aria-hidden="true"></i>
+          <div id="passInputCase">
+            <input type="password" id="password" name="password" required>
+            <div id="CaseButton">
+              <i class="fas fa-eye" id="PasswordButton" onclick="togglePW()" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
+
         <a href="/signin.php">Já tem uma conta? Faça Login</a>
 
         <button>

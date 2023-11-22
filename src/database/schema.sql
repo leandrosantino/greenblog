@@ -100,6 +100,12 @@ FROM comments
     INNER JOIN posts ON comments.post_id = posts.post_id
 WHERE comments.owner_id = 1;
 
-SELECT * FROM favorite WHERE user_id = '1' AND post_id='12'
+SELECT * FROM favorite WHERE user_id = '1' AND post_id='12' 
 
 DELETE FROM favorite WHERE user_id = 1 AND post_id= 12 
+
+SELECT posts.*
+FROM favorite
+    INNER JOIN posts ON favorite.post_id = posts.post_id
+WHERE favorite.user_id = '1'
+ORDER BY created_at DESC

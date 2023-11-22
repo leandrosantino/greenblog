@@ -30,6 +30,13 @@ try {
               <span class="bi bi-chat-left-dots"></span>
             </button>
           </form>
+          <form method="get" action="/" >
+            <input hidden name="user_id" value="${session.userid}"/>
+            <button class="dropdown-item">
+              Posts Salvos
+              <span class="bi bi-bookmark"></span>
+            </button>
+          </form>
           
         </li>
         <li>
@@ -37,7 +44,7 @@ try {
         </li>
         <li>
           <button class="dropdown-item" onclick="logout()" >
-            sair 
+            Sair 
             <span id="logout_icon" class="bi bi-box-arrow-in-right"></span>
           </button>
         </li>

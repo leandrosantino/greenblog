@@ -30,8 +30,8 @@ if (isset($_GET['pass-erro'])) {
       <header id="main">
         <a href="/" id="logo_green"></a>
         <button id="theme_button">
-          <span class="bi bi-sun"></span>  
-      </button>
+          <span class="bi bi-sun"></span>
+        </button>
       </header>
       <form id="login_form" action="/actions/auth.php" method="post">
         <h1>Login</h1>
@@ -42,9 +42,11 @@ if (isset($_GET['pass-erro'])) {
         </div>
         <div>
           <label for="">Senha:</label>
-          <input type="password" name="password" required>
-          <div id="CaseButton">
-            <i class="fas fa-eye" id="PasswordButton" onclick="togglePW()" aria-hidden="true"></i>
+          <div id="passInputCase">
+            <input type="password" name="password" required>
+            <div id="CaseButton">
+              <i class="fas fa-eye" id="PasswordButton" onclick="togglePW()" aria-hidden="true"></i>
+            </div>
           </div>
           <span>
             <?= $pass_erro ?>
