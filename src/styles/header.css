@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /* header */
 
+=======
+>>>>>>> master
 header {
   background-color: var(--primary-2);
   width: 100%;
@@ -22,7 +25,11 @@ header {
   background-size: cover;
 }
 
+<<<<<<< HEAD
 @media (max-width:450px) {
+=======
+@media (max-width:400px) {
+>>>>>>> master
   #logo-white {
     width: 35px;
     height: calc(var(--header-height) - 12px);
@@ -31,6 +38,10 @@ header {
 }
 
 header>div {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -48,6 +59,7 @@ header nav {
   width: 100%;
   display: flex;
   gap: 12px;
+<<<<<<< HEAD
   justify-content: flex-start;
   padding-left: 5px;
 }
@@ -60,6 +72,16 @@ header>nav>a:hover {
   color: var(--white);
   opacity: .9;
 }
+=======
+  justify-content: center;
+
+}
+
+header nav a:first-child {
+  color: var(--white);
+}
+
+>>>>>>> master
 
 
 #login_link>span:last-child {

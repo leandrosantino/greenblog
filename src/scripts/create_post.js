@@ -7,4 +7,9 @@ try {
 
 } catch {
   window.location.replace(`http://${window.location.host}/`)
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> master

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <!-- create_post -->
 
+=======
+>>>>>>> master
 <?php
 $header = include './header.php';
 
