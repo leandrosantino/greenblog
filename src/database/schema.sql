@@ -1,5 +1,29 @@
 -- Active: 1698888367937@@127.0.0.1@3306
 
+<<<<<<< HEAD
+drop Table comments;
+
+create table
+    if not exists user (
+        user_id integer primary key autoincrement,
+        username varchar(16),
+        email varchar(40),
+        password varchar(40),
+        isAdmin BOOLEAN NOT NULL
+    );
+
+create table
+    if not exists posts (
+        post_id integer primary key autoincrement,
+        owner_id int not null references user(user_id),
+        title varchar(80),
+        subtitle text(100),
+        content text,
+        created_at timestamp DEFAULT CURRENT_TIMESTAMP
+    );
+
+create table
+=======
 create table
     if not exists user (
         user_id integer primary key autoincrement,
@@ -20,6 +44,7 @@ create table
     );
 
 create table
+>>>>>>> master
     if not exists comments (
         id integer primary key autoincrement,
         post_id int not null references posts(post_id),
@@ -29,6 +54,11 @@ create table
     );
 
 create table
+<<<<<<< HEAD
+    if not exists favorite (
+        user_id REFERENCES user(user_id),
+        post_id REFERENCES user(post_id)
+=======
     if not exists categories (
         category_id integer primary key autoincrement,
         category_name varchar(50)
@@ -56,6 +86,7 @@ create table
         primary key (post_id, tag_id),
         foreign key (post_id) references posts(post_id),
         foreign key(tag_id) references tags(tag_id)
+>>>>>>> master
     );
 
 INSERT INTO
@@ -120,4 +151,18 @@ SELECT
     posts.post_id
 FROM comments
     INNER JOIN posts ON comments.post_id = posts.post_id
+<<<<<<< HEAD
 WHERE comments.owner_id = 1;
+
+SELECT * FROM favorite WHERE user_id = '1' AND post_id='12' 
+
+DELETE FROM favorite WHERE user_id = 1 AND post_id= 12 
+
+SELECT posts.*
+FROM favorite
+    INNER JOIN posts ON favorite.post_id = posts.post_id
+WHERE favorite.user_id = '1'
+ORDER BY created_at DESC
+=======
+WHERE comments.owner_id = 1;
+>>>>>>> master

@@ -1,3 +1,5 @@
+<!-- header-->
+
 <?php
 return <<<HTML
   <link rel="stylesheet" href="./styles/header.css">
@@ -5,9 +7,14 @@ return <<<HTML
     <div>
       <a href="/" id="logo-white">
         <!-- <img  src="/assets/logo-white.png" alt="logo-white"> -->
-      </a>    
+      </a>  
     </div>
-    <div  >   
+    <nav>
+      <!-- <a href="#">Sobre</a>
+      <a href="/">Recentes</a>
+      <a href="#">Relevantes</a> -->
+    </nav>  
+    <div>   
       <button id="theme_button" class="dropdown-item" ></button> 
       <div id="user_case">
         <a href="signin.php" >
@@ -24,9 +31,3 @@ return <<<HTML
  
 HTML;
 ?>
-
-<!-- <nav>
-    <a href="/">Home</a>
-    <a href="">Conteúdos</a>
-    <a href="">Temas</a>
-</nav> -->

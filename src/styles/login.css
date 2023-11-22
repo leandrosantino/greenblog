@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+/* login */
+
+=======
+>>>>>>> master
 main {
     display: flex;
     width: 100%;
@@ -8,6 +13,20 @@ main {
 }
 
 main>section:first-child {
+<<<<<<< HEAD
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 56px;
+}
+
+main>section:last-child {
+=======
+>>>>>>> master
     display: flex;
     width: 355px;
     padding: 28px 28px 0px 28px;
@@ -19,12 +38,18 @@ main>section:first-child {
     background-color: var(--primary-2);
 }
 
+<<<<<<< HEAD
+main>section:last-child span {
+=======
 main>section:first-child span {
+>>>>>>> master
     font-size: 50px;
     font-weight: bold;
     color: var(--white);
 }
 
+<<<<<<< HEAD
+=======
 main>section:last-child {
     display: flex;
     width: 100%;
@@ -49,6 +74,7 @@ main>section:last-child {
     background-size: cover;
 }
 
+>>>>>>> master
 #login_form {
     width: 400px;
     height: fit-content;
@@ -59,6 +85,16 @@ main>section:last-child {
     gap: 16px;
 }
 
+<<<<<<< HEAD
+#passInputCase {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+=======
+>>>>>>> master
 #login_form>div span {
     font-size: 14px;
     text-indent: 6px;
@@ -81,6 +117,10 @@ main>section:last-child {
 }
 
 #login_form>div {
+<<<<<<< HEAD
+    /* position: relative; */
+=======
+>>>>>>> master
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -112,8 +152,33 @@ main>section:last-child {
     text-align: start;
 }
 
+/*Estilização botão de visibilidade*/
+
+#CaseButton {
+    position: absolute;
+    right: 9px;
+    transform: translate(0, -50%);
+    top: 50%;
+    cursor: pointer;
+}
+
+#font {
+    font-size: 20px;
+    color: white;
+}
+
+.visible-password {
+    color: black !important;
+    /* Use !important to ensure this style takes precedence */
+}
+
+
 @media (max-width: 800px) {
+<<<<<<< HEAD
+    main>section:last-child {
+=======
     main>section:first-child {
+>>>>>>> master
         display: none;
     }
 

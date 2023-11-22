@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+/* global */
+
+=======
+>>>>>>> master
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
 
@@ -5,6 +10,12 @@
   --primary-1: #D6FF97;
   --primary-2: #4C7D02;
   --primary-3: #213700;
+<<<<<<< HEAD
+  --font-1: #969696;
+  --font-2: #343434;
+  --font-3: #3b3b3b;
+=======
+>>>>>>> master
 
   --alert-1: rgb(238, 108, 68);
   --white: #FFFFFF;
@@ -16,6 +27,10 @@ input,
 textarea {
   background-color: var(--back-color-input);
   color: var(--font-3);
+<<<<<<< HEAD
+  border: 1px solid var(--font-2);
+=======
+>>>>>>> master
   resize: none;
   border-radius: 8px;
   font-size: 16px;

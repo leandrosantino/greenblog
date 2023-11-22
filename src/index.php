@@ -1,10 +1,24 @@
+<!-- index-->
+
+
 <?php
 include './database/database.php';
 $header = include './header.php';
-$posts = get_all_posts();
+
+
+$posts = [];
+if (isset($_GET['user_id'])) {
+  $user_id = $_GET['user_id'];
+  $posts = get_favorite_posts($user_id);
+} else {
+  $posts = get_all_posts();
+}
+
 ?>
 
+
 <!DOCTYPE html>
+
 
 <html lang="pt-br">
 
@@ -12,7 +26,11 @@ $posts = get_all_posts();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/global.css">
+  <link rel="stylesheet" href="./styles/home.css">
+  <script src="/scripts/jquery.js"></script>
+  <title>GreenBlog - Home</title>
   <link rel="stylesheet" href="./styles/home.css">
   <script src="/scripts/jquery.js"></script>
   <title>GreenBlog - Home</title>
@@ -20,10 +38,20 @@ $posts = get_all_posts();
 
 <body>
   <?= $header ?>
+  <?= $header ?>
 
   <main id="container">
 
     <div id="content">
+
+      <?php
+
+      if (isset($_GET['user_id'])) {
+        echo "<h4>Posts salvos: </h4>";
+      }
+
+      ?>
+
       <?php foreach ($posts as &$post) {
 
         $title = &$post['title'];
@@ -32,16 +60,14 @@ $posts = get_all_posts();
         $post_id = &$post['post_id'];
         $subtitle = &$post['subtitle'];
 
-        $date = &$post['created_at'];
-        $created_at = new DateTime($date);
-        $created_at = $created_at->format('d/m/Y');
+        $date = $post['created_at'];
+        $created_at = calculate_time_diff($date);
 
         echo <<<HTML
 
             <div id="post" >
               <h1 class="h3">$title</h1>
               <p class="h6">$subtitle</p>
-              <!-- <p  >$content</p> -->
               <div>
                 <span id="post_date" >$created_at</span>
                 <a id="view_more" href="/post.php?id=$post_id">
@@ -57,6 +83,7 @@ $posts = get_all_posts();
   </main>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </html>

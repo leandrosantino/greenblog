@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+<!-- comments -->
+
+=======
+>>>>>>> master
 <?php
 include './database/database.php';
 $header = include './header.php';
