@@ -64,13 +64,9 @@ try {
       </a>
     `)
     }
-
     $('#username').html(session.username)
-
-
-
   }
+
 } catch {
 
 }
-

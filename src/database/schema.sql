@@ -1,6 +1,5 @@
 -- Active: 1698888367937@@127.0.0.1@3306
 
-<<<<<<< HEAD
 drop Table comments;
 
 create table
@@ -23,28 +22,6 @@ create table
     );
 
 create table
-=======
-create table
-    if not exists user (
-        user_id integer primary key autoincrement,
-        email varchar(40),
-        password varchar(40),
-        username varchar(16),
-        isAdmin BOOLEAN NOT NULL
-    );
-
-create table
-    if not exists posts (
-        post_id integer primary key autoincrement,
-        owner_id int not null references user(user_id),
-        title varchar(100),
-        content text,
-        created_at timestamp DEFAULT CURRENT_TIMESTAMP,
-        subtitle text(100)
-    );
-
-create table
->>>>>>> master
     if not exists comments (
         id integer primary key autoincrement,
         post_id int not null references posts(post_id),
@@ -54,39 +31,9 @@ create table
     );
 
 create table
-<<<<<<< HEAD
     if not exists favorite (
         user_id REFERENCES user(user_id),
         post_id REFERENCES user(post_id)
-=======
-    if not exists categories (
-        category_id integer primary key autoincrement,
-        category_name varchar(50)
-    );
-
-create table
-    if not exists post_categories (
-        post_id integer not null,
-        category_id integer not null,
-        primary key (post_id, category_id),
-        foreign key (post_id) references posts(post_id),
-        foreign key (category_id) references categories(category_id)
-    );
-
-create table
-    if not exists tags (
-        tag_id integer primary key autoincrement,
-        tag_name varchar(50)
-    );
-
-create table
-    if not exists post_tags (
-        post_id integer not null,
-        tag_id integer not null,
-        primary key (post_id, tag_id),
-        foreign key (post_id) references posts(post_id),
-        foreign key(tag_id) references tags(tag_id)
->>>>>>> master
     );
 
 INSERT INTO
@@ -151,7 +98,6 @@ SELECT
     posts.post_id
 FROM comments
     INNER JOIN posts ON comments.post_id = posts.post_id
-<<<<<<< HEAD
 WHERE comments.owner_id = 1;
 
 SELECT * FROM favorite WHERE user_id = '1' AND post_id='12' 
@@ -163,6 +109,3 @@ FROM favorite
     INNER JOIN posts ON favorite.post_id = posts.post_id
 WHERE favorite.user_id = '1'
 ORDER BY created_at DESC
-=======
-WHERE comments.owner_id = 1;
->>>>>>> master

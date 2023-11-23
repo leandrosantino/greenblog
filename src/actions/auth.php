@@ -14,19 +14,11 @@ $password = $_POST['password'];
 $user = get_user_by_email($email);
 
 if (!$user) {
-<<<<<<< HEAD
   $msg = urlencode("Usuário não encontrado!");
   header("Location: $host/signin.php?email-erro=$msg");
   exit();
 } elseif ($user['password'] != $password) {
   $msg = urlencode("Senha inválida!");
-=======
-  $msg = urlencode("usuário não encontrado!");
-  header("Location: $host/signin.php?email-erro=$msg");
-  exit();
-} elseif ($user['password'] != $password) {
-  $msg = urlencode("senha inválida!");
->>>>>>> master
   header("Location: $host/signin.php?pass-erro=$msg");
   exit();
 } else {
