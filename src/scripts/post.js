@@ -5,8 +5,7 @@ try {
     $("#user_id").prop('value', session.userid)
     $("#user_id2").prop('value', session.userid)
     $('#form>div>span').prop('innerHTML', '')
-  } else {
-    $("#set_favorite_bt").hide()
+    $("#set_favorite_bt").show()
   }
 
   const post_id = $("#post_id").val()
@@ -35,7 +34,7 @@ try {
           $('#icon_favorite').removeClass('bi-bookmark-plus')
           $('#icon_favorite').addClass('bi-bookmark-fill')
         }
-        fetch(`https://${window.location.host}/actions/fav_create.php?user_id_fav=${session.userid}&post_id=${post_id}`)
+        fetch(`http://${window.location.host}/actions/fav_create.php?user_id_fav=${session.userid}&post_id=${post_id}`)
           .then(a => a.json())
           .then(a => console.log(a))
       })
@@ -49,7 +48,7 @@ try {
 
 async function teste(user, post) {
   const a = await fetch(`
-    https://${window.location.host}/actions/fav_verify.php?user_id_fav=${user}&post_id=${post}
+    http://${window.location.host}/actions/fav_verify.php?user_id_fav=${user}&post_id=${post}
   `)
   const json = await a.json()
   return json

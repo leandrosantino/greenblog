@@ -190,6 +190,7 @@ textarea {
 
 #set_favorite_bt {
   background-color: transparent;
+  display: none;
 }
 
 #icon_favorite {
