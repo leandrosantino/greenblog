@@ -5,8 +5,7 @@ try {
     $("#user_id").prop('value', session.userid)
     $("#user_id2").prop('value', session.userid)
     $('#form>div>span').prop('innerHTML', '')
-  } else {
-    $("#set_favorite_bt").hide()
+    $("#set_favorite_bt").show()
   }
 
   const post_id = $("#post_id").val()

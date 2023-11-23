@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 <!-- signup.php -->
 
-=======
->>>>>>> master
 <?php
 $email_erro = '';
 $user_erro = '';
@@ -20,38 +17,21 @@ if (isset($_GET['user-erro'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./assets//small-logo-green.png" type="image/x-icon">
-<<<<<<< HEAD
   <link rel="stylesheet" href="/styles/global.css">
   <link rel="stylesheet" href="/styles/login.css">
   <link rel="stylesheet" href="/styles/signin_header.css">
-=======
-  <link rel="stylesheet" href="../../styles/global.css">
-  <link rel="stylesheet" href="../../styles/login.css">
->>>>>>> master
   <title>GreenBlog - Cadastro</title>
 </head>
 
 <body>
   <main>
     <section>
-<<<<<<< HEAD
       <header id="main">
         <a href="/" id="logo_green"></a>
         <button id="theme_button">
           <span class="bi bi-sun"></span>
         </button>
       </header>
-=======
-      <span>
-        Um lugar mais verde na Internet
-      </span>
-      <div>
-        <img src="../../assets/tree.png" alt="tree">
-      </div>
-    </section>
-    <section>
-      <a href="/" id="logo_green"></a>
->>>>>>> master
       <form id="login_form" method="post" action="/actions/create_user.php">
         <h1>Cadastre-se</h1>
         <div>
@@ -66,7 +46,6 @@ if (isset($_GET['user-erro'])) {
         </div>
         <div>
           <label for="">Senha:</label>
-<<<<<<< HEAD
           <div id="passInputCase">
             <input type="password" id="password" name="password" required>
             <div id="CaseButton">
@@ -75,11 +54,6 @@ if (isset($_GET['user-erro'])) {
           </div>
         </div>
 
-=======
-          <input type="password" id="password" name="password" required>
-          <span></span>
-        </div>
->>>>>>> master
         <a href="/signin.php">Já tem uma conta? Faça Login</a>
 
         <button>
@@ -90,7 +64,6 @@ if (isset($_GET['user-erro'])) {
       </form>
 
     </section>
-<<<<<<< HEAD
     <section>
       <span>
         Um lugar mais verde na Internet
@@ -104,10 +77,6 @@ if (isset($_GET['user-erro'])) {
   <script src="/scripts/theme.js"></script>
   <script src="scripts/passwordvis.js"></script>
   <script src="https://kit.fontawesome.com/3086f3a53a.js" crossorigin="anonymous"></script>
-=======
-  </main>
-  <script src="/scripts/theme.js"></script>
->>>>>>> master
 </body>
 
 
