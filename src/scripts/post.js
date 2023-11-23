@@ -34,7 +34,7 @@ try {
           $('#icon_favorite').removeClass('bi-bookmark-plus')
           $('#icon_favorite').addClass('bi-bookmark-fill')
         }
-        fetch(`http://${window.location.host}/actions/fav_create.php?user_id_fav=${session.userid}&post_id=${post_id}`)
+        fetch(`https://${window.location.host}/actions/fav_create.php?user_id_fav=${session.userid}&post_id=${post_id}`)
           .then(a => a.json())
           .then(a => console.log(a))
       })
@@ -48,7 +48,7 @@ try {
 
 async function teste(user, post) {
   const a = await fetch(`
-    http://${window.location.host}/actions/fav_verify.php?user_id_fav=${user}&post_id=${post}
+    https://${window.location.host}/actions/fav_verify.php?user_id_fav=${user}&post_id=${post}
   `)
   const json = await a.json()
   return json
