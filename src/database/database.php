@@ -8,45 +8,45 @@ $db = new PDO("sqlite:" . DATABASE_PATH);
 
 function get_user_by_email($email)
 {
-	global $db;
-	$sql = "--sql
+    global $db;
+    $sql = "--sql
 		SELECT * FROM user WHERE email = '$email'
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetch(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetch(PDO::FETCH_ASSOC);
 
-	if (!$query) {
-		return false;
-	}
+    if (!$query) {
+        return false;
+    }
 
-	return $query;
+    return $query;
 }
 
 function get_user_by_username($username)
 {
-	global $db;
-	$sql = "--sql
+    global $db;
+    $sql = "--sql
 		SELECT * FROM user WHERE username = '$username'
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetch(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetch(PDO::FETCH_ASSOC);
 
-	if (!$query) {
-		return false;
-	}
+    if (!$query) {
+        return false;
+    }
 
-	return $query;
+    return $query;
 }
 
 function create_user($data)
 {
-	global $db;
+    global $db;
 
-	$sql = "--sql
+    $sql = "--sql
 		INSERT INTO user (
 		email, password, username, isAdmin
 	) VALUES (
@@ -57,34 +57,34 @@ function create_user($data)
 		)
 	";
 
-	$query = $db->prepare($sql);
-	$query = $query->execute();
+    $query = $db->prepare($sql);
+    $query = $query->execute();
 
-	return $query;
+    return $query;
 }
 
 function get_users()
 {
-	global $db;
-	$sql = "--sql
+    global $db;
+    $sql = "--sql
 		SELECT * FROM user
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	return json_encode(["data" => $query]);
+    return json_encode(["data" => $query]);
 }
 
 function create_comment($data)
 {
-	global $db;
+    global $db;
 
-	$created_at = new DateTime();
-	$created_at = $created_at->format('Y-m-d H:i:s');
+    $created_at = new DateTime();
+    $created_at = $created_at->format('Y-m-d H:i:s');
 
-	$sql = "--sql
+    $sql = "--sql
 		INSERT INTO comments (post_id, owner_id, content, created_at) VALUES (
 			$data->post_id,
 			$data->user_id,
@@ -93,73 +93,73 @@ function create_comment($data)
 		)
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
+    $query = $db->prepare($sql);
+    $query->execute();
 
-	if (!$query) {
-		return false;
-	}
-	return $data;
+    if (!$query) {
+        return false;
+    }
+    return $data;
 }
 
-function get_comments_by_post_id(String $post_id)
+function get_comments_by_post_id(string $post_id)
 {
-	global $db;
-	$sql = "--sql
+    global $db;
+    $sql = "--sql
 		SELECT comments.*, user.username 
 		FROM comments, user 
 		WHERE user.user_id = comments.owner_id AND post_id = '$post_id'
 		ORDER BY comments.created_at DESC
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	if (!$query) {
-		return false;
-	}
+    if (!$query) {
+        return false;
+    }
 
-	return $query;
+    return $query;
 }
 
 function get_all_posts()
 {
-	global $db;
+    global $db;
 
-	$sql = "--sql
+    $sql = "--sql
 		SELECT * FROM posts ORDER BY created_at DESC
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	return $query;
+    return $query;
 }
 
-function get_post_by_id(String $id)
+function get_post_by_id(string $id)
 {
-	global $db;
-	$sql = "--sql
+    global $db;
+    $sql = "--sql
 		SELECT * FROM posts WHERE post_id = '$id'
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetch(PDO::FETCH_ASSOC);
+    $iquery = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetch(PDO::FETCH_ASSOC);
 
-	if (!$query) {
-		return false;
-	}
+    if (!$query) {
+        return false;
+    }
 
-	return $query;
+    return $query;
 }
 
-function get_comments_by_user_id(String $id)
+function get_comments_by_user_id(string $id)
 {
-	global $db;
-	$sql = "--sql
+    global $db;
+    $sql = "--sql
 		SELECT comments.*, posts.title, posts.post_id 
 		FROM comments 
 		INNER JOIN posts 
@@ -168,25 +168,25 @@ function get_comments_by_user_id(String $id)
 		ORDER BY comments.created_at DESC
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	if (!$query) {
-		return false;
-	}
+    if (!$query) {
+        return false;
+    }
 
-	return $query;
+    return $query;
 }
 
 function create_post($data)
 {
-	global $db;
+    global $db;
 
-	$created_at = new DateTime();
-	$created_at = $created_at->format('Y-m-d H:i:s');
+    $created_at = new DateTime();
+    $created_at = $created_at->format('Y-m-d H:i:s');
 
-	$sql = "--sql
+    $sql = "--sql
 		INSERT INTO posts (
 		owner_id, title, content, subtitle, created_at
 	) VALUES (
@@ -198,99 +198,99 @@ function create_post($data)
 	)
 	";
 
-	$query = $db->prepare($sql);
-	$query = $query->execute();
+    $query = $db->prepare($sql);
+    $query = $query->execute();
 
-	return $query;
+    return $query;
 }
 
 
-function calculate_time_diff(String $date_str)
+function calculate_time_diff(string $date_str)
 {
 
-	$now = new DateTime('now');
-	$date = new DateTime($date_str);
-	$diff = $now->diff($date);
+    $now = new DateTime('now');
+    $date = new DateTime($date_str);
+    $diff = $now->diff($date);
 
-	$days = $diff->days;
-	$hours = $diff->h;
-	$minutes = $diff->i;
+    $days = $diff->days;
+    $hours = $diff->h;
+    $minutes = $diff->i;
 
-	if ($days > 7) {
-		return $date->format('d/m/Y');
-	}
+    if ($days > 7) {
+        return $date->format('d/m/Y');
+    }
 
-	if ($days == 7) {
-		return 'Há 1 sem';
-	}
+    if ($days == 7) {
+        return 'Há 1 sem';
+    }
 
-	if ($days >= 1) {
-		return 'Há ' . $days . ' d';
-	}
+    if ($days >= 1) {
+        return 'Há ' . $days . ' d';
+    }
 
-	if ($days == 0 && $hours > 1 && $minutes >= 0) {
-		return 'Há ' . $hours . ' h';
-	}
+    if ($days == 0 && $hours > 1 && $minutes >= 0) {
+        return 'Há ' . $hours . ' h';
+    }
 
-	if ($days == 0 && $hours <= 1 && $minutes >= 1) {
-		return 'Há ' . $minutes . ' min';
-	}
+    if ($days == 0 && $hours <= 1 && $minutes >= 1) {
+        return 'Há ' . $minutes . ' min';
+    }
 
-	if ($days == 0 && $hours == 0 && $minutes == 0) {
-		return 'Agora';
-	}
+    if ($days == 0 && $hours == 0 && $minutes == 0) {
+        return 'Agora';
+    }
 
-	return '';
+    return '';
 }
 
-function get_favorite(String $post_id, String $user_id)
+function get_favorite(string $post_id, string $user_id)
 {
-	global $db;
+    global $db;
 
-	$sql = "--sql
+    $sql = "--sql
 		SELECT * FROM favorite WHERE user_id = '$user_id' AND post_id= '$post_id'
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	return $query;
+    return $query;
 }
 
-function create_favorite(String $post_id, String $user_id)
+function create_favorite(string $post_id, string $user_id)
 {
-	global $db;
+    global $db;
 
-	$sql = "--sql
+    $sql = "--sql
 		INSERT INTO favorite VALUES ('$user_id','$post_id')
 	";
 
-	$query = $db->prepare($sql);
-	$query = $query->execute();
+    $query = $db->prepare($sql);
+    $query = $query->execute();
 
-	return $query;
+    return $query;
 }
 
-function delete_favorite(String $post_id, String $user_id)
+function delete_favorite(string $post_id, string $user_id)
 {
-	global $db;
+    global $db;
 
-	$sql = "--sql
+    $sql = "--sql
 		DELETE FROM favorite WHERE user_id = '$user_id' AND post_id= '$post_id'
 	";
 
-	$query = $db->prepare($sql);
-	$query = $query->execute();
+    $query = $db->prepare($sql);
+    $query = $query->execute();
 
-	return $query;
+    return $query;
 }
 
 function get_favorite_posts($user_id)
 {
-	global $db;
+    global $db;
 
-	$sql = "--sql
+    $sql = "--sql
 		SELECT posts.* 
 		FROM favorite 
 		INNER JOIN posts 
@@ -299,9 +299,9 @@ function get_favorite_posts($user_id)
 		ORDER BY created_at DESC
 	";
 
-	$query = $db->prepare($sql);
-	$query->execute();
-	$query = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db->prepare($sql);
+    $query->execute();
+    $query = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	return $query;
+    return $query;
 }

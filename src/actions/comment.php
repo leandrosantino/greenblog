@@ -1,11 +1,13 @@
-<?php 
+<?php
 
 include '../database/database.php';
 
 $host = $_SERVER['HTTP_HOST'];
 
-if(!isset($_POST['id']) || !isset($_POST['comment']) || !isset($_POST['user_id'])){
-  header("Location: http://$host/"); exit();
+if (!isset($_POST['id']) || !isset($_POST['comment']) || !isset($_POST['user_id'])) {
+    header("Location: http://$host/");
+    exit()
+    ;
 }
 
 $post_id = $_POST['id'];
@@ -18,9 +20,12 @@ $resp = create_comment((object) [
   'content' => $content
 ]);
 
-if(!$resp){
-  header("Location: http://$host/"); exit();
+if (!$resp) {
+    header("Location: http://$host/");
+    exit();
 }
 
 
-header("Location: http://$host/post.php?id=$post_id"); exit();
+header("Location: http://$host/post.php?id=$post_id");
+exit();
+
