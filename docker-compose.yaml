@@ -2,8 +2,27 @@ version: "3"
 
 services:
   php:
-    image: php:8.3.0RC2-apache
+    build: .
     ports:
       - "3338:80"
     volumes:
       - ./src:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: greenblog-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 5A328WH9C
+      MYSQL_DATABASE: greenblog
+      MYSQL_USER: user
+      MYSQL_PASSWORD: normalpassword
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db_data:

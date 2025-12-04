@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `posts`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `posts` (
   `post_id` int NOT NULL,
-  `owner_id` int NOT NULL,
+  `user_id` int NOT NULL,
   `content` text,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`post_id`)

@@ -14,7 +14,7 @@ create table
 create table
     if not exists posts (
         post_id integer primary key autoincrement,
-        owner_id int not null references user(user_id),
+        user_id int not null references user(user_id),
         title varchar(80),
         subtitle text(100),
         content text,
@@ -25,7 +25,7 @@ create table
     if not exists comments (
         id integer primary key autoincrement,
         post_id int not null references posts(post_id),
-        owner_id int not null references user(user_id),
+        user_id int not null references user(user_id),
         content text,
         created_at timestamp DEFAULT CURRENT_TIMESTAMP
     );
@@ -66,7 +66,7 @@ VALUES (
 
 INSERT INTO
     posts (
-        owner_id,
+        user_id,
         title,
         subtitle,
         content
@@ -80,7 +80,7 @@ VALUES (
 
 INSERT INTO
     posts (
-        owner_id,
+        user_id,
         title,
         subtitle,
         content
@@ -98,7 +98,7 @@ SELECT
     posts.post_id
 FROM comments
     INNER JOIN posts ON comments.post_id = posts.post_id
-WHERE comments.owner_id = 1;
+WHERE comments.user_id = 1;
 
 SELECT * FROM favorite WHERE user_id = '1' AND post_id='12' 
 

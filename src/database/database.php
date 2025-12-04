@@ -10,7 +10,7 @@ function get_user_by_email($email)
 {
     global $db;
     $sql = "--sql
-		SELECT * FROM user WHERE email = '$email'
+		SELECT * FROM users WHERE email = '$email'
 	";
 
     $query = $db->prepare($sql);
@@ -28,7 +28,7 @@ function get_user_by_username($username)
 {
     global $db;
     $sql = "--sql
-		SELECT * FROM user WHERE username = '$username'
+		SELECT * FROM users WHERE username = '$username'
 	";
 
     $query = $db->prepare($sql);
@@ -67,7 +67,7 @@ function get_users()
 {
     global $db;
     $sql = "--sql
-		SELECT * FROM user
+		SELECT * FROM users
 	";
 
     $query = $db->prepare($sql);
@@ -85,7 +85,7 @@ function create_comment($data)
     $created_at = $created_at->format('Y-m-d H:i:s');
 
     $sql = "--sql
-		INSERT INTO comments (post_id, owner_id, content, created_at) VALUES (
+		INSERT INTO comments (post_id, user_id, content, created_at) VALUES (
 			$data->post_id,
 			$data->user_id,
 			'$data->content',
@@ -108,7 +108,7 @@ function get_comments_by_post_id(string $post_id)
     $sql = "--sql
 		SELECT comments.*, user.username 
 		FROM comments, user 
-		WHERE user.user_id = comments.owner_id AND post_id = '$post_id'
+		WHERE user.user_id = comments.user_id AND post_id = '$post_id'
 		ORDER BY comments.created_at DESC
 	";
 
@@ -164,7 +164,7 @@ function get_comments_by_user_id(string $id)
 		FROM comments 
 		INNER JOIN posts 
 		ON comments.post_id = posts.post_id 
-		WHERE comments.owner_id = '$id'
+		WHERE comments.user_id = '$id'
 		ORDER BY comments.created_at DESC
 	";
 
@@ -188,7 +188,7 @@ function create_post($data)
 
     $sql = "--sql
 		INSERT INTO posts (
-		owner_id, title, content, subtitle, created_at
+		user_id, title, content, subtitle, created_at
 	) VALUES (
 		'$data->user_id',
 		'$data->title',
